@@ -181,55 +181,57 @@ namespace ProjectCourse {
 		  }
 
 #pragma endregion
-	private: System::Void database_Load(System::Object^ sender, System::EventArgs^ e) {
-		/*Проверка существования файлов с данными*/
+private: System::Void database_Load(System::Object^ sender, System::EventArgs^ e) {
+	/*Проверка существования файлов с данными*/
 
-		//Проверка существования файла с клиентами
-		if (IO::File::Exists("login.txt")) {}
-		else {
-			/*Создаем новый файл, если файл не создан*/
-			StreamWriter^ new_file = gcnew StreamWriter("login.txt");
-			delete new_file;
-		}
-		//Проверка существования файла с поставщиками
-		if (IO::File::Exists("supplier.txt")) {}
-		else {
-			/*Создаем новый файл, если файл не создан*/
-			StreamWriter^ new_file = gcnew StreamWriter("supplier.txt");
-			delete new_file;
-		}
-		//Проверка существования файла с заказами
-		if (IO::File::Exists("supplier.txt")) {}
-		else {
-			/*Создаем новый файл, если файл не создан*/
-			StreamWriter^ new_file = gcnew StreamWriter("supplier.txt");
-			delete new_file;
-		}
-		//Проверка существования файла с услугами
-		if (IO::File::Exists("supplier.txt")) {}
-		else {
-			/*Создаем новый файл, если файл не создан*/
-			StreamWriter^ new_file = gcnew StreamWriter("supplier.txt");
-			delete new_file;
-		}
+	//Проверка существования файла с клиентами
+	if (IO::File::Exists("login.txt")) {}
+	else {
+		/*Создаем новый файл, если файл не создан*/
+		StreamWriter^ new_file = gcnew StreamWriter("login.txt");
+		delete new_file;
 	}
+	//Проверка существования файла с поставщиками
+	if (IO::File::Exists("supplier.txt")) {}
+	else {
+		/*Создаем новый файл, если файл не создан*/
+		StreamWriter^ new_file = gcnew StreamWriter("supplier.txt");
+		delete new_file;
+	}
+	//Проверка существования файла с заказами
+	if (IO::File::Exists("orderhistory.txt")) {}
+	else {
+		/*Создаем новый файл, если файл не создан*/
+		StreamWriter^ new_file = gcnew StreamWriter("orderhistory.txt");
+		delete new_file;
+	}
+	//Проверка существования файла с услугами
+	if (IO::File::Exists("services.txt")) {}
+	else {
+		/*Создаем новый файл, если файл не создан*/
+		StreamWriter^ new_file = gcnew StreamWriter("services.txt");
+		delete new_file;
+	}
+}
 
-		   /*Обработка закрытия формы на Х*/
-	private: System::Void database_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-		/*Если какие - то данные были изменены */
-		if (save == false)
-			switch (MessageBox::Show("При выходе из базы данных все несохраненные данные будут потеряны.\nПрименить изменения?", "Внимание", MessageBoxButtons::YesNo, MessageBoxIcon::Warning)) {
-			case System::Windows::Forms::DialogResult::Yes: ToolStripMenuItem_safe_Click(sender, e);  break;
-			case System::Windows::Forms::DialogResult::No: break;
-			}
-		Owner->Show();
-		this->Hide();
-	}
+/*Обработка закрытия формы на Х*/
+private: System::Void database_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+	/*Если какие - то данные были изменены */
+	if (save == false)
+		switch (MessageBox::Show("При выходе из базы данных все несохраненные данные будут потеряны.\nПрименить изменения?", "Внимание", MessageBoxButtons::YesNo, MessageBoxIcon::Warning)) {
+		case System::Windows::Forms::DialogResult::Yes: ToolStripMenuItem_safe_Click(sender, e);  break;
+		case System::Windows::Forms::DialogResult::No: break;
+		}
+	Owner->Show();
+	this->Hide();
+}
 
 private: System::Void ToolStripMenuItem_safe_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 
 private: System::Void ToolStripMenuItem_info_Click(System::Object^ sender, System::EventArgs^ e) {
+	info^ inf = gcnew info;
+	inf->Show();
 }
 };
 }
