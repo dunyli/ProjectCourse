@@ -141,6 +141,9 @@
     <EmbeddedResource Include="info.resx">
       <DependentUpon>info.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="password.resx">
+      <DependentUpon>password.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
