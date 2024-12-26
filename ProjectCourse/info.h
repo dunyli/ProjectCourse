@@ -73,6 +73,7 @@ namespace Project {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::InactiveCaption;
 			this->ClientSize = System::Drawing::Size(1295, 870);
 			this->Controls->Add(this->textBox1);
 			this->Name = L"info";

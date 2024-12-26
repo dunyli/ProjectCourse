@@ -120,6 +120,7 @@
   <ItemGroup>
     <ClCompile Include="info.cpp" />
     <ClCompile Include="login.cpp" />
+    <ClCompile Include="password.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="info.h">
@@ -128,6 +129,14 @@
     <ClInclude Include="login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="password.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="info.resx">
+      <DependentUpon>info.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,11 +15,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="login.cpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClCompile>
     <ClCompile Include="info.cpp">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="login.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="password.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -27,6 +30,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="info.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="password.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
