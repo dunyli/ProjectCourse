@@ -182,7 +182,36 @@ namespace ProjectCourse {
 
 #pragma endregion
 	private: System::Void database_Load(System::Object^ sender, System::EventArgs^ e) {
-		/*Проверка существования файла с данными*/
+		/*Проверка существования файлов с данными*/
+
+		//Проверка существования файла с клиентами
+		if (IO::File::Exists("login.txt")) {}
+		else {
+			/*Создаем новый файл, если файл не создан*/
+			StreamWriter^ new_file = gcnew StreamWriter("login.txt");
+			delete new_file;
+		}
+		//Проверка существования файла с поставщиками
+		if (IO::File::Exists("supplier.txt")) {}
+		else {
+			/*Создаем новый файл, если файл не создан*/
+			StreamWriter^ new_file = gcnew StreamWriter("supplier.txt");
+			delete new_file;
+		}
+		//Проверка существования файла с заказами
+		if (IO::File::Exists("supplier.txt")) {}
+		else {
+			/*Создаем новый файл, если файл не создан*/
+			StreamWriter^ new_file = gcnew StreamWriter("supplier.txt");
+			delete new_file;
+		}
+		//Проверка существования файла с услугами
+		if (IO::File::Exists("supplier.txt")) {}
+		else {
+			/*Создаем новый файл, если файл не создан*/
+			StreamWriter^ new_file = gcnew StreamWriter("supplier.txt");
+			delete new_file;
+		}
 	}
 
 		   /*Обработка закрытия формы на Х*/
