@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "change_pass.h"
 
-namespace Project {
+namespace ProjectCourse {
 
 	using namespace System;
 	using namespace System::ComponentModel;

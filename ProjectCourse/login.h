@@ -3,7 +3,7 @@
 #include "password.h"
 #include "database.h"
 
-namespace Project {
+namespace ProjectCourse {
 
 	using namespace System;
 	using namespace System::ComponentModel;

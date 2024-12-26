@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace Project {
+namespace ProjectCourse {
 
 	using namespace System;
 	using namespace System::ComponentModel;
