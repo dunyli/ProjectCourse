@@ -53,8 +53,40 @@ namespace ProjectCourse {
 	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_safe;
 	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delet_data;
 	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_exit;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_add_client;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_add_supplier;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_search_client;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_search_suppplier;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_search_product;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_search_service;
 
-		   /*Логическая переменная для проверки изменения данных*/
+
+
+
+
+
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_add_product;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_add_service;
+
+
+	private: System::Windows::Forms::ToolStripMenuItem^ вывестиСписокКлиентовToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ вывестиСписокПоставщикToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ вывестиСписокToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ вывестиСписокТоваровToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_product;
+
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_supplier;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_client;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_order;
+	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_service;
+
+
+
+
+
+
+
+	/*Логическая переменная для проверки изменения данных*/
 	public: bool save = true;
 
 #pragma region Windows Form Designer generated code
@@ -74,6 +106,23 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_info = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_exit = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_add_client = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_add_supplier = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_add_product = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_add_service = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->вывестиСписокКлиентовToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->вывестиСписокПоставщикToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->вывестиСписокToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->вывестиСписокТоваровToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_search_client = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_search_suppplier = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_search_product = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_search_service = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_delete_product = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_delete_supplier = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_delete_client = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_delete_order = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_delete_service = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->menuStrip->SuspendLayout();
 			  this->SuspendLayout();
 			  // 
@@ -94,32 +143,44 @@ namespace ProjectCourse {
 			  this->menuStrip->MinimumSize = System::Drawing::Size(2000, 0);
 			  this->menuStrip->Name = L"menuStrip";
 			  this->menuStrip->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			  this->menuStrip->Size = System::Drawing::Size(2330, 53);
+			  this->menuStrip->Size = System::Drawing::Size(2090, 53);
 			  this->menuStrip->TabIndex = 0;
 			  this->menuStrip->Text = L"Меню";
 			  // 
 			  // ToolStripMenuItem_make_order
 			  // 
 			  this->ToolStripMenuItem_make_order->Name = L"ToolStripMenuItem_make_order";
-			  this->ToolStripMenuItem_make_order->Size = System::Drawing::Size(282, 49);
+			  this->ToolStripMenuItem_make_order->Size = System::Drawing::Size(282, 53);
 			  this->ToolStripMenuItem_make_order->Text = L"Создание заказа";
 			  // 
 			  // ToolStripMenuItem_search_data
 			  // 
+			  this->ToolStripMenuItem_search_data->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				  this->ToolStripMenuItem_search_client,
+					  this->ToolStripMenuItem_search_suppplier, this->ToolStripMenuItem_search_product, this->ToolStripMenuItem_search_service
+			  });
 			  this->ToolStripMenuItem_search_data->Name = L"ToolStripMenuItem_search_data";
-			  this->ToolStripMenuItem_search_data->Size = System::Drawing::Size(333, 49);
+			  this->ToolStripMenuItem_search_data->Size = System::Drawing::Size(333, 53);
 			  this->ToolStripMenuItem_search_data->Text = L"Поиск информации";
 			  // 
 			  // ToolStripMenuItem_add_data
 			  // 
+			  this->ToolStripMenuItem_add_data->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				  this->ToolStripMenuItem_add_client,
+					  this->ToolStripMenuItem_add_supplier, this->ToolStripMenuItem_add_product, this->ToolStripMenuItem_add_service
+			  });
 			  this->ToolStripMenuItem_add_data->Name = L"ToolStripMenuItem_add_data";
-			  this->ToolStripMenuItem_add_data->Size = System::Drawing::Size(338, 49);
+			  this->ToolStripMenuItem_add_data->Size = System::Drawing::Size(338, 53);
 			  this->ToolStripMenuItem_add_data->Text = L"Добавление данных";
 			  // 
 			  // ToolStripMenuItem_output_data
 			  // 
+			  this->ToolStripMenuItem_output_data->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				  this->вывестиСписокКлиентовToolStripMenuItem,
+					  this->вывестиСписокПоставщикToolStripMenuItem, this->вывестиСписокToolStripMenuItem, this->вывестиСписокТоваровToolStripMenuItem
+			  });
 			  this->ToolStripMenuItem_output_data->Name = L"ToolStripMenuItem_output_data";
-			  this->ToolStripMenuItem_output_data->Size = System::Drawing::Size(252, 49);
+			  this->ToolStripMenuItem_output_data->Size = System::Drawing::Size(252, 53);
 			  this->ToolStripMenuItem_output_data->Text = L"Вывод данных";
 			  // 
 			  // ToolStripMenuItem_safe
@@ -127,12 +188,16 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_safe->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				  static_cast<System::Byte>(204)));
 			  this->ToolStripMenuItem_safe->Name = L"ToolStripMenuItem_safe";
-			  this->ToolStripMenuItem_safe->Size = System::Drawing::Size(195, 49);
+			  this->ToolStripMenuItem_safe->Size = System::Drawing::Size(195, 53);
 			  this->ToolStripMenuItem_safe->Text = L"Сохранить";
 			  this->ToolStripMenuItem_safe->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_safe_Click);
 			  // 
 			  // ToolStripMenuItem_delet_data
 			  // 
+			  this->ToolStripMenuItem_delet_data->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+				  this->ToolStripMenuItem_delete_product,
+					  this->ToolStripMenuItem_delete_supplier, this->ToolStripMenuItem_delete_client, this->ToolStripMenuItem_delete_order, this->ToolStripMenuItem_delete_service
+			  });
 			  this->ToolStripMenuItem_delet_data->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12));
 			  this->ToolStripMenuItem_delet_data->Name = L"ToolStripMenuItem_delet_data";
 			  this->ToolStripMenuItem_delet_data->Size = System::Drawing::Size(276, 49);
@@ -142,7 +207,7 @@ namespace ProjectCourse {
 			  // 
 			  this->ToolStripMenuItem_info->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12));
 			  this->ToolStripMenuItem_info->Name = L"ToolStripMenuItem_info";
-			  this->ToolStripMenuItem_info->Size = System::Drawing::Size(162, 49);
+			  this->ToolStripMenuItem_info->Size = System::Drawing::Size(162, 53);
 			  this->ToolStripMenuItem_info->Text = L"Справка";
 			  this->ToolStripMenuItem_info->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_info_Click);
 			  // 
@@ -150,13 +215,117 @@ namespace ProjectCourse {
 			  // 
 			  this->ToolStripMenuItem_exit->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12));
 			  this->ToolStripMenuItem_exit->Name = L"ToolStripMenuItem_exit";
-			  this->ToolStripMenuItem_exit->Size = System::Drawing::Size(224, 49);
+			  this->ToolStripMenuItem_exit->Size = System::Drawing::Size(224, 53);
 			  this->ToolStripMenuItem_exit->Text = L"Выход из БД";
+			  this->ToolStripMenuItem_exit->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_exit_Click);
 			  // 
 			  // toolStripMenuItem1
 			  // 
 			  this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
-			  this->toolStripMenuItem1->Size = System::Drawing::Size(20, 49);
+			  this->toolStripMenuItem1->Size = System::Drawing::Size(20, 53);
+			  // 
+			  // ToolStripMenuItem_add_client
+			  // 
+			  this->ToolStripMenuItem_add_client->Name = L"ToolStripMenuItem_add_client";
+			  this->ToolStripMenuItem_add_client->Size = System::Drawing::Size(524, 54);
+			  this->ToolStripMenuItem_add_client->Text = L"Добавление клиента";
+			  this->ToolStripMenuItem_add_client->Click += gcnew System::EventHandler(this, &database::добавлениеКлиентаToolStripMenuItem_Click);
+			  // 
+			  // ToolStripMenuItem_add_supplier
+			  // 
+			  this->ToolStripMenuItem_add_supplier->Name = L"ToolStripMenuItem_add_supplier";
+			  this->ToolStripMenuItem_add_supplier->Size = System::Drawing::Size(524, 54);
+			  this->ToolStripMenuItem_add_supplier->Text = L"Добавление поставщика";
+			  // 
+			  // ToolStripMenuItem_add_product
+			  // 
+			  this->ToolStripMenuItem_add_product->Name = L"ToolStripMenuItem_add_product";
+			  this->ToolStripMenuItem_add_product->Size = System::Drawing::Size(524, 54);
+			  this->ToolStripMenuItem_add_product->Text = L"Добавление товара";
+			  // 
+			  // ToolStripMenuItem_add_service
+			  // 
+			  this->ToolStripMenuItem_add_service->Name = L"ToolStripMenuItem_add_service";
+			  this->ToolStripMenuItem_add_service->Size = System::Drawing::Size(524, 54);
+			  this->ToolStripMenuItem_add_service->Text = L"Добавление услуги";
+			  // 
+			  // вывестиСписокКлиентовToolStripMenuItem
+			  // 
+			  this->вывестиСписокКлиентовToolStripMenuItem->Name = L"вывестиСписокКлиентовToolStripMenuItem";
+			  this->вывестиСписокКлиентовToolStripMenuItem->Size = System::Drawing::Size(596, 54);
+			  this->вывестиСписокКлиентовToolStripMenuItem->Text = L"Вывести список заказов";
+			  // 
+			  // вывестиСписокПоставщикToolStripMenuItem
+			  // 
+			  this->вывестиСписокПоставщикToolStripMenuItem->Name = L"вывестиСписокПоставщикToolStripMenuItem";
+			  this->вывестиСписокПоставщикToolStripMenuItem->Size = System::Drawing::Size(596, 54);
+			  this->вывестиСписокПоставщикToolStripMenuItem->Text = L"Вывести список поставщиков";
+			  // 
+			  // вывестиСписокToolStripMenuItem
+			  // 
+			  this->вывестиСписокToolStripMenuItem->Name = L"вывестиСписокToolStripMenuItem";
+			  this->вывестиСписокToolStripMenuItem->Size = System::Drawing::Size(596, 54);
+			  this->вывестиСписокToolStripMenuItem->Text = L"Вывести список клиентов";
+			  // 
+			  // вывестиСписокТоваровToolStripMenuItem
+			  // 
+			  this->вывестиСписокТоваровToolStripMenuItem->Name = L"вывестиСписокТоваровToolStripMenuItem";
+			  this->вывестиСписокТоваровToolStripMenuItem->Size = System::Drawing::Size(596, 54);
+			  this->вывестиСписокТоваровToolStripMenuItem->Text = L"Вывести список товаров";
+			  // 
+			  // ToolStripMenuItem_search_client
+			  // 
+			  this->ToolStripMenuItem_search_client->Name = L"ToolStripMenuItem_search_client";
+			  this->ToolStripMenuItem_search_client->Size = System::Drawing::Size(435, 54);
+			  this->ToolStripMenuItem_search_client->Text = L"Поиск клиента";
+			  // 
+			  // ToolStripMenuItem_search_suppplier
+			  // 
+			  this->ToolStripMenuItem_search_suppplier->Name = L"ToolStripMenuItem_search_suppplier";
+			  this->ToolStripMenuItem_search_suppplier->Size = System::Drawing::Size(435, 54);
+			  this->ToolStripMenuItem_search_suppplier->Text = L"Поиск поставщика";
+			  // 
+			  // ToolStripMenuItem_search_product
+			  // 
+			  this->ToolStripMenuItem_search_product->Name = L"ToolStripMenuItem_search_product";
+			  this->ToolStripMenuItem_search_product->Size = System::Drawing::Size(435, 54);
+			  this->ToolStripMenuItem_search_product->Text = L"Поиск товара";
+			  // 
+			  // ToolStripMenuItem_search_service
+			  // 
+			  this->ToolStripMenuItem_search_service->Name = L"ToolStripMenuItem_search_service";
+			  this->ToolStripMenuItem_search_service->Size = System::Drawing::Size(435, 54);
+			  this->ToolStripMenuItem_search_service->Text = L"Поиск услуги";
+			  // 
+			  // ToolStripMenuItem_delete_product
+			  // 
+			  this->ToolStripMenuItem_delete_product->Name = L"ToolStripMenuItem_delete_product";
+			  this->ToolStripMenuItem_delete_product->Size = System::Drawing::Size(460, 54);
+			  this->ToolStripMenuItem_delete_product->Text = L"Удалить товар";
+			  // 
+			  // ToolStripMenuItem_delete_supplier
+			  // 
+			  this->ToolStripMenuItem_delete_supplier->Name = L"ToolStripMenuItem_delete_supplier";
+			  this->ToolStripMenuItem_delete_supplier->Size = System::Drawing::Size(460, 54);
+			  this->ToolStripMenuItem_delete_supplier->Text = L"Удалить поставщика";
+			  // 
+			  // ToolStripMenuItem_delete_client
+			  // 
+			  this->ToolStripMenuItem_delete_client->Name = L"ToolStripMenuItem_delete_client";
+			  this->ToolStripMenuItem_delete_client->Size = System::Drawing::Size(460, 54);
+			  this->ToolStripMenuItem_delete_client->Text = L"Удалить клиента";
+			  // 
+			  // ToolStripMenuItem_delete_order
+			  // 
+			  this->ToolStripMenuItem_delete_order->Name = L"ToolStripMenuItem_delete_order";
+			  this->ToolStripMenuItem_delete_order->Size = System::Drawing::Size(460, 54);
+			  this->ToolStripMenuItem_delete_order->Text = L"Удалить заказ";
+			  // 
+			  // ToolStripMenuItem_delete_service
+			  // 
+			  this->ToolStripMenuItem_delete_service->Name = L"ToolStripMenuItem_delete_service";
+			  this->ToolStripMenuItem_delete_service->Size = System::Drawing::Size(460, 54);
+			  this->ToolStripMenuItem_delete_service->Text = L"Удалить услугу";
 			  // 
 			  // database
 			  // 
@@ -226,12 +395,29 @@ private: System::Void database_FormClosing(System::Object^ sender, System::Windo
 	this->Hide();
 }
 
+/*Обработка кнопки Сохранить*/
 private: System::Void ToolStripMenuItem_safe_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 
+/*Обработка нажатия на кнопку СПРАВКА*/
 private: System::Void ToolStripMenuItem_info_Click(System::Object^ sender, System::EventArgs^ e) {
 	info^ inf = gcnew info;
 	inf->Show();
+}
+
+//Обработка нажатия на кнопку Выход из БД
+private: System::Void ToolStripMenuItem_exit_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*Если какие - то данные были изменены */
+	if (save == false)
+		switch (MessageBox::Show("При выходе из базы данных все несохраненные данные будут потеряны.\nПрименить изменения?", "Внимание", MessageBoxButtons::YesNo, MessageBoxIcon::Warning)) {
+		case System::Windows::Forms::DialogResult::Yes: ToolStripMenuItem_safe_Click(sender, e);  break;
+		case System::Windows::Forms::DialogResult::No: break;
+		}
+	Owner->Show();
+	this->Hide();
+}
+private: System::Void добавлениеКлиентаToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
