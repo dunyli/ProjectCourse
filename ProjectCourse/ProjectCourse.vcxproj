@@ -118,9 +118,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="info.cpp" />
     <ClCompile Include="login.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="info.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
