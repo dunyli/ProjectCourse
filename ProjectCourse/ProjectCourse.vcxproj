@@ -119,12 +119,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="change_pass.cpp" />
+    <ClCompile Include="database.cpp" />
     <ClCompile Include="info.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="password.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="change_pass.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="database.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="info.h">
