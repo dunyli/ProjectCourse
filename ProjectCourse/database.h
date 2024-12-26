@@ -84,10 +84,34 @@ namespace ProjectCourse {
 	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_order;
 	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_service;
 	private: System::Windows::Forms::DataGridView^ dataGridView_clients;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column4;
+	private: System::Windows::Forms::DataGridView^ dataGridView_supplier;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column4;
+	private: System::Windows::Forms::DataGridView^ dataGridView_product;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column4;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column5;
+	private: System::Windows::Forms::DataGridView^ dataGridView_service;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column4;
+	private: System::Windows::Forms::Label^ label_database_clients;
+	private: System::Windows::Forms::Label^ label_database_suppliers;
+	private: System::Windows::Forms::Label^ label_database_products;
+	private: System::Windows::Forms::Label^ label_database_services;
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+
+
+
 
 
 
@@ -140,11 +164,35 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_exit = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->dataGridView_clients = (gcnew System::Windows::Forms::DataGridView());
-			  this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			  this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			  this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->dataGridView_supplier = (gcnew System::Windows::Forms::DataGridView());
+			  this->supplier_Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->supplier_Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->supplier_Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->supplier_Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->client_Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->client_Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->client_Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->client_Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->dataGridView_product = (gcnew System::Windows::Forms::DataGridView());
+			  this->dataGridView_service = (gcnew System::Windows::Forms::DataGridView());
+			  this->product_Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->product_Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->product_Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->product_Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->product_Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->service_Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->service_Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->service_Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->service_Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->label_database_clients = (gcnew System::Windows::Forms::Label());
+			  this->label_database_suppliers = (gcnew System::Windows::Forms::Label());
+			  this->label_database_products = (gcnew System::Windows::Forms::Label());
+			  this->label_database_services = (gcnew System::Windows::Forms::Label());
 			  this->menuStrip->SuspendLayout();
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_clients))->BeginInit();
+			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_supplier))->BeginInit();
+			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_product))->BeginInit();
+			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_service))->BeginInit();
 			  this->SuspendLayout();
 			  // 
 			  // menuStrip
@@ -355,42 +403,266 @@ namespace ProjectCourse {
 			  this->dataGridView_clients->AllowUserToOrderColumns = true;
 			  this->dataGridView_clients->Anchor = System::Windows::Forms::AnchorStyles::None;
 			  this->dataGridView_clients->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			  this->dataGridView_clients->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
-				  this->Column1,
-					  this->Column2, this->Column3
+			  this->dataGridView_clients->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+				  this->client_Column1,
+					  this->client_Column2, this->client_Column3, this->client_Column4
 			  });
-			  this->dataGridView_clients->Location = System::Drawing::Point(400, 136);
+			  this->dataGridView_clients->Location = System::Drawing::Point(191, 160);
 			  this->dataGridView_clients->Name = L"dataGridView_clients";
 			  this->dataGridView_clients->ReadOnly = true;
 			  this->dataGridView_clients->RowHeadersWidth = 60;
 			  this->dataGridView_clients->RowTemplate->Height = 33;
-			  this->dataGridView_clients->Size = System::Drawing::Size(1261, 442);
+			  this->dataGridView_clients->Size = System::Drawing::Size(1656, 442);
 			  this->dataGridView_clients->TabIndex = 1;
 			  this->dataGridView_clients->Visible = false;
 			  // 
-			  // Column1
+			  // dataGridView_supplier
 			  // 
-			  this->Column1->HeaderText = L"Номер клиента";
-			  this->Column1->MinimumWidth = 10;
-			  this->Column1->Name = L"Column1";
-			  this->Column1->ReadOnly = true;
-			  this->Column1->Width = 400;
+			  this->dataGridView_supplier->AllowUserToAddRows = false;
+			  this->dataGridView_supplier->AllowUserToDeleteRows = false;
+			  this->dataGridView_supplier->AllowUserToOrderColumns = true;
+			  this->dataGridView_supplier->Anchor = System::Windows::Forms::AnchorStyles::None;
+			  this->dataGridView_supplier->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			  this->dataGridView_supplier->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+				  this->supplier_Column1,
+					  this->supplier_Column2, this->supplier_Column3, this->supplier_Column4
+			  });
+			  this->dataGridView_supplier->Location = System::Drawing::Point(104, 160);
+			  this->dataGridView_supplier->Name = L"dataGridView_supplier";
+			  this->dataGridView_supplier->ReadOnly = true;
+			  this->dataGridView_supplier->RowHeadersWidth = 60;
+			  this->dataGridView_supplier->RowTemplate->Height = 33;
+			  this->dataGridView_supplier->Size = System::Drawing::Size(1833, 442);
+			  this->dataGridView_supplier->TabIndex = 2;
+			  this->dataGridView_supplier->Visible = false;
 			  // 
-			  // Column2
+			  // supplier_Column1
 			  // 
-			  this->Column2->HeaderText = L"ФИО Клиента";
-			  this->Column2->MinimumWidth = 10;
-			  this->Column2->Name = L"Column2";
-			  this->Column2->ReadOnly = true;
-			  this->Column2->Width = 400;
+			  this->supplier_Column1->HeaderText = L"Номер поставщика";
+			  this->supplier_Column1->MinimumWidth = 10;
+			  this->supplier_Column1->Name = L"supplier_Column1";
+			  this->supplier_Column1->ReadOnly = true;
+			  this->supplier_Column1->Width = 420;
 			  // 
-			  // Column3
+			  // supplier_Column2
 			  // 
-			  this->Column3->HeaderText = L"Адрес клиента";
-			  this->Column3->MinimumWidth = 10;
-			  this->Column3->Name = L"Column3";
-			  this->Column3->ReadOnly = true;
-			  this->Column3->Width = 400;
+			  this->supplier_Column2->HeaderText = L"Название поставщика";
+			  this->supplier_Column2->MinimumWidth = 10;
+			  this->supplier_Column2->Name = L"supplier_Column2";
+			  this->supplier_Column2->ReadOnly = true;
+			  this->supplier_Column2->Width = 500;
+			  // 
+			  // supplier_Column3
+			  // 
+			  this->supplier_Column3->HeaderText = L"Адрес поставщика";
+			  this->supplier_Column3->MinimumWidth = 10;
+			  this->supplier_Column3->Name = L"supplier_Column3";
+			  this->supplier_Column3->ReadOnly = true;
+			  this->supplier_Column3->Width = 400;
+			  // 
+			  // supplier_Column4
+			  // 
+			  this->supplier_Column4->HeaderText = L"Телефон поставщика";
+			  this->supplier_Column4->MinimumWidth = 10;
+			  this->supplier_Column4->Name = L"supplier_Column4";
+			  this->supplier_Column4->ReadOnly = true;
+			  this->supplier_Column4->Width = 450;
+			  // 
+			  // client_Column1
+			  // 
+			  this->client_Column1->HeaderText = L"Номер клиента";
+			  this->client_Column1->MinimumWidth = 10;
+			  this->client_Column1->Name = L"client_Column1";
+			  this->client_Column1->ReadOnly = true;
+			  this->client_Column1->Width = 400;
+			  // 
+			  // client_Column2
+			  // 
+			  this->client_Column2->HeaderText = L"ФИО Клиента";
+			  this->client_Column2->MinimumWidth = 10;
+			  this->client_Column2->Name = L"client_Column2";
+			  this->client_Column2->ReadOnly = true;
+			  this->client_Column2->Width = 400;
+			  // 
+			  // client_Column3
+			  // 
+			  this->client_Column3->HeaderText = L"Адрес клиента";
+			  this->client_Column3->MinimumWidth = 10;
+			  this->client_Column3->Name = L"client_Column3";
+			  this->client_Column3->ReadOnly = true;
+			  this->client_Column3->Width = 400;
+			  // 
+			  // client_Column4
+			  // 
+			  this->client_Column4->HeaderText = L"Телефон клиента";
+			  this->client_Column4->MinimumWidth = 10;
+			  this->client_Column4->Name = L"client_Column4";
+			  this->client_Column4->ReadOnly = true;
+			  this->client_Column4->Width = 400;
+			  // 
+			  // dataGridView_product
+			  // 
+			  this->dataGridView_product->AllowUserToAddRows = false;
+			  this->dataGridView_product->AllowUserToDeleteRows = false;
+			  this->dataGridView_product->AllowUserToOrderColumns = true;
+			  this->dataGridView_product->Anchor = System::Windows::Forms::AnchorStyles::None;
+			  this->dataGridView_product->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			  this->dataGridView_product->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+				  this->product_Column1,
+					  this->product_Column2, this->product_Column3, this->product_Column4, this->product_Column5
+			  });
+			  this->dataGridView_product->Location = System::Drawing::Point(54, 160);
+			  this->dataGridView_product->Name = L"dataGridView_product";
+			  this->dataGridView_product->ReadOnly = true;
+			  this->dataGridView_product->RowHeadersWidth = 60;
+			  this->dataGridView_product->RowTemplate->Height = 33;
+			  this->dataGridView_product->Size = System::Drawing::Size(1931, 442);
+			  this->dataGridView_product->TabIndex = 3;
+			  this->dataGridView_product->Visible = false;
+			  // 
+			  // dataGridView_service
+			  // 
+			  this->dataGridView_service->AllowUserToAddRows = false;
+			  this->dataGridView_service->AllowUserToDeleteRows = false;
+			  this->dataGridView_service->AllowUserToOrderColumns = true;
+			  this->dataGridView_service->Anchor = System::Windows::Forms::AnchorStyles::None;
+			  this->dataGridView_service->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			  this->dataGridView_service->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+				  this->service_Column1,
+					  this->service_Column2, this->service_Column3, this->service_Column4
+			  });
+			  this->dataGridView_service->Location = System::Drawing::Point(154, 160);
+			  this->dataGridView_service->Name = L"dataGridView_service";
+			  this->dataGridView_service->ReadOnly = true;
+			  this->dataGridView_service->RowHeadersWidth = 60;
+			  this->dataGridView_service->RowTemplate->Height = 33;
+			  this->dataGridView_service->Size = System::Drawing::Size(1661, 442);
+			  this->dataGridView_service->TabIndex = 4;
+			  this->dataGridView_service->Visible = false;
+			  // 
+			  // product_Column1
+			  // 
+			  this->product_Column1->HeaderText = L"Номер товара";
+			  this->product_Column1->MinimumWidth = 10;
+			  this->product_Column1->Name = L"product_Column1";
+			  this->product_Column1->ReadOnly = true;
+			  this->product_Column1->Width = 350;
+			  // 
+			  // product_Column2
+			  // 
+			  this->product_Column2->HeaderText = L"Название товара";
+			  this->product_Column2->MinimumWidth = 10;
+			  this->product_Column2->Name = L"product_Column2";
+			  this->product_Column2->ReadOnly = true;
+			  this->product_Column2->Width = 400;
+			  // 
+			  // product_Column3
+			  // 
+			  this->product_Column3->HeaderText = L"Номер поставщика";
+			  this->product_Column3->MinimumWidth = 10;
+			  this->product_Column3->Name = L"product_Column3";
+			  this->product_Column3->ReadOnly = true;
+			  this->product_Column3->Width = 450;
+			  // 
+			  // product_Column4
+			  // 
+			  this->product_Column4->HeaderText = L"Цена товара";
+			  this->product_Column4->MinimumWidth = 10;
+			  this->product_Column4->Name = L"product_Column4";
+			  this->product_Column4->ReadOnly = true;
+			  this->product_Column4->Width = 300;
+			  // 
+			  // product_Column5
+			  // 
+			  this->product_Column5->HeaderText = L"Количество товара";
+			  this->product_Column5->MinimumWidth = 10;
+			  this->product_Column5->Name = L"product_Column5";
+			  this->product_Column5->ReadOnly = true;
+			  this->product_Column5->Width = 450;
+			  // 
+			  // service_Column1
+			  // 
+			  this->service_Column1->HeaderText = L"Номер услуги";
+			  this->service_Column1->MinimumWidth = 10;
+			  this->service_Column1->Name = L"service_Column1";
+			  this->service_Column1->ReadOnly = true;
+			  this->service_Column1->Width = 350;
+			  // 
+			  // service_Column2
+			  // 
+			  this->service_Column2->HeaderText = L"Название услуги";
+			  this->service_Column2->MinimumWidth = 10;
+			  this->service_Column2->Name = L"service_Column2";
+			  this->service_Column2->ReadOnly = true;
+			  this->service_Column2->Width = 400;
+			  // 
+			  // service_Column3
+			  // 
+			  this->service_Column3->HeaderText = L"Вид животного";
+			  this->service_Column3->MinimumWidth = 10;
+			  this->service_Column3->Name = L"service_Column3";
+			  this->service_Column3->ReadOnly = true;
+			  this->service_Column3->Width = 450;
+			  // 
+			  // service_Column4
+			  // 
+			  this->service_Column4->HeaderText = L"Цена услуги";
+			  this->service_Column4->MinimumWidth = 10;
+			  this->service_Column4->Name = L"service_Column4";
+			  this->service_Column4->ReadOnly = true;
+			  this->service_Column4->Width = 400;
+			  // 
+			  // label_database_clients
+			  // 
+			  this->label_database_clients->Anchor = System::Windows::Forms::AnchorStyles::None;
+			  this->label_database_clients->AutoSize = true;
+			  this->label_database_clients->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
+				  System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			  this->label_database_clients->Location = System::Drawing::Point(785, 84);
+			  this->label_database_clients->Name = L"label_database_clients";
+			  this->label_database_clients->Size = System::Drawing::Size(447, 61);
+			  this->label_database_clients->TabIndex = 5;
+			  this->label_database_clients->Text = L"Список клиентов";
+			  this->label_database_clients->Visible = false;
+			  // 
+			  // label_database_suppliers
+			  // 
+			  this->label_database_suppliers->Anchor = System::Windows::Forms::AnchorStyles::None;
+			  this->label_database_suppliers->AutoSize = true;
+			  this->label_database_suppliers->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
+				  System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			  this->label_database_suppliers->Location = System::Drawing::Point(750, 84);
+			  this->label_database_suppliers->Name = L"label_database_suppliers";
+			  this->label_database_suppliers->Size = System::Drawing::Size(544, 61);
+			  this->label_database_suppliers->TabIndex = 6;
+			  this->label_database_suppliers->Text = L"Список поставщиков";
+			  this->label_database_suppliers->Visible = false;
+			  // 
+			  // label_database_products
+			  // 
+			  this->label_database_products->Anchor = System::Windows::Forms::AnchorStyles::None;
+			  this->label_database_products->AutoSize = true;
+			  this->label_database_products->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
+				  System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			  this->label_database_products->Location = System::Drawing::Point(825, 84);
+			  this->label_database_products->Name = L"label_database_products";
+			  this->label_database_products->Size = System::Drawing::Size(417, 61);
+			  this->label_database_products->TabIndex = 7;
+			  this->label_database_products->Text = L"Список товаров";
+			  this->label_database_products->Visible = false;
+			  // 
+			  // label_database_services
+			  // 
+			  this->label_database_services->Anchor = System::Windows::Forms::AnchorStyles::None;
+			  this->label_database_services->AutoSize = true;
+			  this->label_database_services->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
+				  System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			  this->label_database_services->Location = System::Drawing::Point(863, 84);
+			  this->label_database_services->Name = L"label_database_services";
+			  this->label_database_services->Size = System::Drawing::Size(352, 61);
+			  this->label_database_services->TabIndex = 8;
+			  this->label_database_services->Text = L"Список услуг";
+			  this->label_database_services->Visible = false;
 			  // 
 			  // database
 			  // 
@@ -398,6 +670,13 @@ namespace ProjectCourse {
 			  this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			  this->BackColor = System::Drawing::SystemColors::Info;
 			  this->ClientSize = System::Drawing::Size(2174, 763);
+			  this->Controls->Add(this->label_database_services);
+			  this->Controls->Add(this->label_database_products);
+			  this->Controls->Add(this->label_database_suppliers);
+			  this->Controls->Add(this->label_database_clients);
+			  this->Controls->Add(this->dataGridView_service);
+			  this->Controls->Add(this->dataGridView_product);
+			  this->Controls->Add(this->dataGridView_supplier);
 			  this->Controls->Add(this->dataGridView_clients);
 			  this->Controls->Add(this->menuStrip);
 			  this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -411,6 +690,9 @@ namespace ProjectCourse {
 			  this->menuStrip->ResumeLayout(false);
 			  this->menuStrip->PerformLayout();
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_clients))->EndInit();
+			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_supplier))->EndInit();
+			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_product))->EndInit();
+			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_service))->EndInit();
 			  this->ResumeLayout(false);
 			  this->PerformLayout();
 
