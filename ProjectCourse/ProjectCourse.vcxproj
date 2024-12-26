@@ -118,6 +118,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="addclient.cpp" />
     <ClCompile Include="change_pass.cpp" />
     <ClCompile Include="database.cpp" />
     <ClCompile Include="info.cpp" />
@@ -125,6 +126,9 @@
     <ClCompile Include="password.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="addclient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="change_pass.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -142,6 +146,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="addclient.resx">
+      <DependentUpon>addclient.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="database.resx">
       <DependentUpon>database.h</DependentUpon>
     </EmbeddedResource>

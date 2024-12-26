@@ -109,23 +109,6 @@ namespace ProjectCourse {
 	private: System::Windows::Forms::Label^ label_database_products;
 	private: System::Windows::Forms::Label^ label_database_services;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	/*Логическая переменная для проверки изменения данных*/
 	public: bool save = true;
 
