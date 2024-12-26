@@ -156,18 +156,30 @@ namespace ProjectCourse {
 		   /*Нажатие кнопки ВВОД*/
 	private: System::Void button_password_enter_Click(System::Object^ sender, System::EventArgs^ e) {
 		/*Открытие заранее созданного файла, с записанным паролем*/
-		StreamReader^ pass = gcnew StreamReader("pass.txt");
-		pass_right = pass->ReadLine();
-		pass->Close();
-		String^ pass_input = textBox_password->Text;
-		if (pass_input == pass_right)
-		{
-			prov_pass = true;
-			this->Hide();
+		if (IO::File::Exists("pass.txt")) {
+			StreamReader^ pass = gcnew StreamReader("pass.txt");
+			pass_right = pass->ReadLine();
+			pass->Close();
+			String^ pass_input = textBox_password->Text;
+			if (pass_input == pass_right)
+			{
+				prov_pass = true;
+				this->Hide();
+			}
+			else {
+				textBox_password->Text = "";
+				MessageBox::Show("Неверный пароль!\nПовторите ввод.", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
 		}
 		else {
-			textBox_password->Text = "";
-			MessageBox::Show("Неверный пароль!\nПовторите ввод.", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			StreamWriter^ new_pass = gcnew StreamWriter("pass.txt");
+			pass_right = textBox_password->Text;
+			new_pass->Write(pass_right);
+			new_pass->WriteLine();
+			new_pass->Close();
+			MessageBox::Show("Пароль сохранён", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			textBox_password->Clear();
+			this->Hide();
 		}
 	}
 		   /*Нажатие кнопки Сменить пароль, открывается форма change_pass.h*/
