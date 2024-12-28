@@ -242,7 +242,7 @@ private: System::Void button_addclient_enter_Click(System::Object^ sender, Syste
 	}
 	/*Добавление в строку всех данных заполненных, в форме*/
 	clientadding = textBox_addclient_name->Text + "&" + textBox_addclient_address->Text + "&" + maskedTextBox_addclient_phone->Text;
-	MessageBox::Show("Строка добавлена успешно!", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	MessageBox::Show("Клиент добавлен успешно!", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	this->Close();
 }
 };

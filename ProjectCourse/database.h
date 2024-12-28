@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "info.h"
 #include "addclient.h"
+#include "addsupplier.h"
 
 namespace ProjectCourse {
 
@@ -196,7 +197,7 @@ namespace ProjectCourse {
 			  this->menuStrip->MinimumSize = System::Drawing::Size(2000, 0);
 			  this->menuStrip->Name = L"menuStrip";
 			  this->menuStrip->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			  this->menuStrip->Size = System::Drawing::Size(2330, 53);
+			  this->menuStrip->Size = System::Drawing::Size(2090, 53);
 			  this->menuStrip->TabIndex = 0;
 			  this->menuStrip->Text = L"Меню";
 			  // 
@@ -394,7 +395,7 @@ namespace ProjectCourse {
 				  this->client_Column1,
 					  this->client_Column2, this->client_Column3, this->client_Column4
 			  });
-			  this->dataGridView_clients->Location = System::Drawing::Point(191, 160);
+			  this->dataGridView_clients->Location = System::Drawing::Point(185, 164);
 			  this->dataGridView_clients->Name = L"dataGridView_clients";
 			  this->dataGridView_clients->ReadOnly = true;
 			  this->dataGridView_clients->RowHeadersWidth = 60;
@@ -498,7 +499,7 @@ namespace ProjectCourse {
 				  this->product_Column1,
 					  this->product_Column2, this->product_Column3, this->product_Column4, this->product_Column5
 			  });
-			  this->dataGridView_product->Location = System::Drawing::Point(51, 211);
+			  this->dataGridView_product->Location = System::Drawing::Point(61, 263);
 			  this->dataGridView_product->Name = L"dataGridView_product";
 			  this->dataGridView_product->ReadOnly = true;
 			  this->dataGridView_product->RowHeadersWidth = 60;
@@ -777,6 +778,25 @@ private: System::Void ToolStripMenuItem_add_client_Click(System::Object^ sender,
 }
 /*Обработка кнопки добавление поставщика*/
 private: System::Void ToolStripMenuItem_add_supplier_Click(System::Object^ sender, System::EventArgs^ e) {
+	addsupplier^ add = gcnew addsupplier();
+	add->ShowDialog();
+	if (add->supplieradding != String::Empty) {
+		/*Добавление строки в таблицу*/
+		dataGridView_supplier->Rows->Add();
+		/*Создание массива строк*/
+		cli::array<String^>^ newstr2;
+		newstr2 = add->supplieradding->Split('&');
+		int count;
+		count = dataGridView_supplier->RowCount - 1;
+		/*Нумерация строк с единицы*/
+		dataGridView_supplier->Rows[count]->Cells[0]->Value = count + 1;
+		for (int i = 0; i < 3; i++)
+		{
+			dataGridView_supplier->Rows[count]->Cells[i + 1]->Value = newstr2[i];
+		}
+		/*Так как данные были изменены, то меняем переменную save*/
+		save = false;
+	}
 }
 /*Обработка кнопки добавление товара*/
 private: System::Void ToolStripMenuItem_add_product_Click(System::Object^ sender, System::EventArgs^ e) {
