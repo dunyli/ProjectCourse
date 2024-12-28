@@ -3,6 +3,7 @@
 #include "addclient.h"
 #include "addsupplier.h"
 #include "addproduct.h"
+#include "addservice.h"
 
 namespace ProjectCourse {
 
@@ -756,6 +757,7 @@ private: System::Void ToolStripMenuItem_exit_Click(System::Object^ sender, Syste
 	Owner->Show();
 	this->Hide();
 }
+
 /*Обработка кнопки добавление клиента*/
 private: System::Void ToolStripMenuItem_add_client_Click(System::Object^ sender, System::EventArgs^ e) {
 	addclient^ add = gcnew addclient();
@@ -778,6 +780,7 @@ private: System::Void ToolStripMenuItem_add_client_Click(System::Object^ sender,
 		save = false;
 	}
 }
+
 /*Обработка кнопки добавление поставщика*/
 private: System::Void ToolStripMenuItem_add_supplier_Click(System::Object^ sender, System::EventArgs^ e) {
 	addsupplier^ add = gcnew addsupplier();
@@ -800,6 +803,7 @@ private: System::Void ToolStripMenuItem_add_supplier_Click(System::Object^ sende
 		save = false;
 	}
 }
+
 /*Обработка кнопки добавление товара*/
 private: System::Void ToolStripMenuItem_add_product_Click(System::Object^ sender, System::EventArgs^ e) {
 	addproduct^ add = gcnew addproduct();
@@ -841,6 +845,25 @@ private: System::Void ToolStripMenuItem_add_product_Click(System::Object^ sender
 }
 /*Обработка кнопки добавление услуги*/
 private: System::Void ToolStripMenuItem_add_service_Click(System::Object^ sender, System::EventArgs^ e) {
+	addservice^ add = gcnew addservice();
+	add->ShowDialog();
+	if (add->serviceadding != String::Empty) {
+		/*Добавление строки в таблицу*/
+		dataGridView_service->Rows->Add();
+		/*Создание массива строк*/
+		cli::array<String^>^ newstr2;
+		newstr2 = add->serviceadding->Split('&');
+		int count;
+		count = dataGridView_service->RowCount - 1;
+		/*Нумерация строк с единицы*/
+		dataGridView_service->Rows[count]->Cells[0]->Value = count + 1;
+		for (int i = 0; i < 3; i++)
+		{
+			dataGridView_service->Rows[count]->Cells[i + 1]->Value = newstr2[i];
+		}
+		/*Так как данные были изменены, то меняем переменную save*/
+		save = false;
+	}
 }
 };
 }
