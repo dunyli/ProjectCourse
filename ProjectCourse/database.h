@@ -2,6 +2,7 @@
 #include "info.h"
 #include "addclient.h"
 #include "addsupplier.h"
+#include "addproduct.h"
 
 namespace ProjectCourse {
 
@@ -12,6 +13,7 @@ namespace ProjectCourse {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::IO;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Сводка для database
@@ -499,7 +501,7 @@ namespace ProjectCourse {
 				  this->product_Column1,
 					  this->product_Column2, this->product_Column3, this->product_Column4, this->product_Column5
 			  });
-			  this->dataGridView_product->Location = System::Drawing::Point(55, 186);
+			  this->dataGridView_product->Location = System::Drawing::Point(39, 220);
 			  this->dataGridView_product->Name = L"dataGridView_product";
 			  this->dataGridView_product->ReadOnly = true;
 			  this->dataGridView_product->RowHeadersWidth = 60;
@@ -800,6 +802,42 @@ private: System::Void ToolStripMenuItem_add_supplier_Click(System::Object^ sende
 }
 /*Обработка кнопки добавление товара*/
 private: System::Void ToolStripMenuItem_add_product_Click(System::Object^ sender, System::EventArgs^ e) {
+	addproduct^ add = gcnew addproduct();
+	// Получаем значения из первых двух столбцов DataGridView
+	List<String^>^ values = gcnew List<String^>(); // Использование List из System::Collections::Generic
+	for each (DataGridViewRow^ row in dataGridView_supplier->Rows)
+	{
+		if (row->Cells[0]->Value != nullptr && row->Cells[1]->Value != nullptr)
+		{
+			// Склеиваем значения из первых двух столбцов
+			String^ concatenatedValue = row->Cells[0]->Value->ToString() + ". " + row->Cells[1]->Value->ToString();
+			values->Add(concatenatedValue); // Добавляем склеенные строки в список
+		}
+	}
+	// Проверка на пустоту списка
+	if (values->Count > 0) // Если список не пустой
+	{
+		add->SetValues_comboBox_supplier(values);
+		add->ShowDialog();
+		if (add->productadding != String::Empty) {
+			/*Добавление строки в таблицу*/
+			dataGridView_product->Rows->Add();
+			/*Создание массива строк*/
+			cli::array<String^>^ newstr2;
+			newstr2 = add->productadding->Split('&');
+			int count;
+			count = dataGridView_product->RowCount - 1;
+			/*Нумерация строк с единицы*/
+			dataGridView_product->Rows[count]->Cells[0]->Value = count + 1;
+			for (int i = 0; i < 4; i++)
+			{
+				dataGridView_product->Rows[count]->Cells[i + 1]->Value = newstr2[i];
+			}
+			/*Так как данные были изменены, то меняем переменную save*/
+			save = false;
+		}
+	}
+	else MessageBox::Show("Перед добавлением товара добавьте поставщика!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 }
 /*Обработка кнопки добавление услуги*/
 private: System::Void ToolStripMenuItem_add_service_Click(System::Object^ sender, System::EventArgs^ e) {

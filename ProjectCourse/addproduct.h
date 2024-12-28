@@ -151,7 +151,7 @@ namespace ProjectCourse {
 			this->label_addproduct_supplier->Name = L"label_addproduct_supplier";
 			this->label_addproduct_supplier->Size = System::Drawing::Size(542, 84);
 			this->label_addproduct_supplier->TabIndex = 5;
-			this->label_addproduct_supplier->Text = L"Выберите номер поставщика:\r\nОбразец: 2. ООО Мираторг\r\n";
+			this->label_addproduct_supplier->Text = L"Выберите номер поставщика:\r\nОбразец: 12. ООО Мираторг\r\n";
 			// 
 			// button_addproduct_enter
 			// 
@@ -206,10 +206,13 @@ namespace ProjectCourse {
 			// 
 			// comboBox_supplier
 			// 
+			this->comboBox_supplier->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->comboBox_supplier->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
 			this->comboBox_supplier->FormattingEnabled = true;
-			this->comboBox_supplier->Location = System::Drawing::Point(32, 472);
+			this->comboBox_supplier->Location = System::Drawing::Point(32, 469);
 			this->comboBox_supplier->Name = L"comboBox_supplier";
-			this->comboBox_supplier->Size = System::Drawing::Size(535, 33);
+			this->comboBox_supplier->Size = System::Drawing::Size(535, 59);
 			this->comboBox_supplier->TabIndex = 11;
 			// 
 			// addproduct
@@ -234,8 +237,8 @@ namespace ProjectCourse {
 			this->Load += gcnew System::EventHandler(this, &addproduct::addproduct_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
-		}
 
+		}
 
 #pragma endregion
 		//Обработка кнопки вернуться назад
@@ -256,17 +259,17 @@ namespace ProjectCourse {
 	private: System::Void button_addproduct_enter_Click(System::Object^ sender, System::EventArgs^ e) {
 		/*Проверки на правильность введенных данных в текстбоксы*/
 		if (textBox_addproduct_name->Text == String::Empty) {
-			MessageBox::Show("Некорректный ввод ФИО клиента!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show("Некорректный ввод названия товара!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			return;
 		}
 
 		if (textBox_addproduct_price->Text == String::Empty) {
-			MessageBox::Show("Некорректный ввода цены товара!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show("Некорректный ввод цены товара!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			return;
 		}
 
-		if (textBox_addproduct_price->Text == String::Empty) {
-			MessageBox::Show("Некорректный ввода цены товара!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		if (comboBox_supplier->Text == String::Empty) {
+			MessageBox::Show("Некорректный ввод номера поставщика!\nЕсли поставщика нет в списке, добавьте его!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			return;
 		}
 
@@ -275,7 +278,7 @@ namespace ProjectCourse {
 			return;
 		}
 		/*Добавление в строку всех данных заполненных, в форме*/
-		productadding = textBox_addproduct_name->Text + "&" + textBox_addsupplier_address->Text + "&" + textBox_addproduct_price->Text + "&" + textBox_addproduct_count->Text;
+		productadding = textBox_addproduct_name->Text + "&" + comboBox_supplier->Text + "&" + textBox_addproduct_price->Text + "&" + textBox_addproduct_count->Text;
 		MessageBox::Show("Товар добавлен успешно!", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		this->Close();
 	}

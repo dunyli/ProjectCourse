@@ -244,7 +244,7 @@ namespace ProjectCourse {
 		}
 
 		if (textBox_addsupplier_address->Text == String::Empty) {
-			MessageBox::Show("Некорректный ввода адреса!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show("Некорректный ввод адреса!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			return;
 		}
 
