@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="addclient.cpp" />
+    <ClCompile Include="addsupplier.cpp" />
     <ClCompile Include="change_pass.cpp" />
     <ClCompile Include="database.cpp" />
     <ClCompile Include="info.cpp" />
@@ -127,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addclient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="addsupplier.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="change_pass.h">

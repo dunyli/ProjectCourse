@@ -262,18 +262,21 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_add_supplier->Name = L"ToolStripMenuItem_add_supplier";
 			  this->ToolStripMenuItem_add_supplier->Size = System::Drawing::Size(524, 54);
 			  this->ToolStripMenuItem_add_supplier->Text = L"Добавление поставщика";
+			  this->ToolStripMenuItem_add_supplier->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_add_supplier_Click);
 			  // 
 			  // ToolStripMenuItem_add_product
 			  // 
 			  this->ToolStripMenuItem_add_product->Name = L"ToolStripMenuItem_add_product";
 			  this->ToolStripMenuItem_add_product->Size = System::Drawing::Size(524, 54);
 			  this->ToolStripMenuItem_add_product->Text = L"Добавление товара";
+			  this->ToolStripMenuItem_add_product->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_add_product_Click);
 			  // 
 			  // ToolStripMenuItem_add_service
 			  // 
 			  this->ToolStripMenuItem_add_service->Name = L"ToolStripMenuItem_add_service";
 			  this->ToolStripMenuItem_add_service->Size = System::Drawing::Size(524, 54);
 			  this->ToolStripMenuItem_add_service->Text = L"Добавление услуги";
+			  this->ToolStripMenuItem_add_service->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_add_service_Click);
 			  // 
 			  // ToolStripMenuItem_output_data
 			  // 
@@ -772,6 +775,14 @@ private: System::Void ToolStripMenuItem_add_client_Click(System::Object^ sender,
 		save = false;
 	}
 }
-/**/
+/*Обработка кнопки добавление поставщика*/
+private: System::Void ToolStripMenuItem_add_supplier_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+/*Обработка кнопки добавление товара*/
+private: System::Void ToolStripMenuItem_add_product_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+/*Обработка кнопки добавление услуги*/
+private: System::Void ToolStripMenuItem_add_service_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
