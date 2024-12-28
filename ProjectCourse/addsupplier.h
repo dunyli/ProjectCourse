@@ -239,7 +239,7 @@ namespace ProjectCourse {
 	private: System::Void button_addsupplier_enter_Click(System::Object^ sender, System::EventArgs^ e) {
 		/*Проверки на правильность введенных данных в текстбоксы*/
 		if (textBox_addsupplier_name->Text == String::Empty) {
-			MessageBox::Show("Некорректный ввод ФИО клиента!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show("Некорректный ввод названия поставщика!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			return;
 		}
 

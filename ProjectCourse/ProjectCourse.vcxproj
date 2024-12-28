@@ -157,6 +157,9 @@
     <EmbeddedResource Include="addclient.resx">
       <DependentUpon>addclient.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="addproduct.resx">
+      <DependentUpon>addproduct.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addsupplier.resx">
       <DependentUpon>addsupplier.h</DependentUpon>
     </EmbeddedResource>
