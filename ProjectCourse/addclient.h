@@ -23,6 +23,8 @@ namespace ProjectCourse {
 			//
 		}
 
+		/*Строка для добавления*/
+	public: String^ clientadding;
 	protected:
 		/// <summary>
 		/// Освободить все используемые ресурсы.
@@ -148,6 +150,7 @@ namespace ProjectCourse {
 			this->maskedTextBox_addclient_phone->Name = L"maskedTextBox_addclient_phone";
 			this->maskedTextBox_addclient_phone->Size = System::Drawing::Size(482, 56);
 			this->maskedTextBox_addclient_phone->TabIndex = 6;
+			this->maskedTextBox_addclient_phone->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &addclient::maskedTextBox_addclient_phone_KeyPress);
 			// 
 			// button_addclient_enter
 			// 
@@ -161,6 +164,7 @@ namespace ProjectCourse {
 			this->button_addclient_enter->TabIndex = 7;
 			this->button_addclient_enter->Text = L"Добавить клиента";
 			this->button_addclient_enter->UseVisualStyleBackColor = false;
+			this->button_addclient_enter->Click += gcnew System::EventHandler(this, &addclient::button_addclient_enter_Click);
 			// 
 			// button_addclient_exit
 			// 
@@ -174,6 +178,7 @@ namespace ProjectCourse {
 			this->button_addclient_exit->TabIndex = 8;
 			this->button_addclient_exit->Text = L"Вернуться назад";
 			this->button_addclient_exit->UseVisualStyleBackColor = false;
+			this->button_addclient_exit->Click += gcnew System::EventHandler(this, &addclient::button_addclient_exit_Click);
 			// 
 			// addclient
 			// 
@@ -192,10 +197,53 @@ namespace ProjectCourse {
 			this->Controls->Add(this->label_addclient_head);
 			this->Name = L"addclient";
 			this->Text = L"Добавление клиента";
+			this->Load += gcnew System::EventHandler(this, &addclient::addclient_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+//Обработка кнопки вернуться назад
+private: System::Void button_addclient_exit_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Windows::Forms::DialogResult dialog = MessageBox::Show("Все введенные данные, будут утеряны.\nВы уверены?", "Возвращение к базе данных", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+	if (dialog == System::Windows::Forms::DialogResult::No) return;
+	else {
+		this->Close();
+		clientadding = String::Empty;
+	}
+}
+
+private: System::Void addclient_Load(System::Object^ sender, System::EventArgs^ e) {
+	clientadding = String::Empty;
+}
+
+private: System::Void maskedTextBox_addclient_phone_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	/*Если вводятся цифры от 0 до 9 или символ Backspase (код = 8) то далее*/
+	if (((e->KeyChar >= '0') && (e->KeyChar <= '9')) || e->KeyChar == 8) return;
+	e->Handled = true; // Остальные символы запрещены для ввода
+}
+
+/*Обработка кнопки добавить клиента*/
+private: System::Void button_addclient_enter_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*Проверки на правильность введенных данных в текстбоксы*/
+	if (textBox_addclient_name->Text == String::Empty) {
+		MessageBox::Show("Некорректный ввод ФИО клиента!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+
+	if (textBox_addclient_address->Text == String::Empty) {
+		MessageBox::Show("Некорректный ввода адреса!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+
+	if (maskedTextBox_addclient_phone->Text == String::Empty) {
+		MessageBox::Show("Некорректный ввод телефона!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+	/*Добавление в строку всех данных заполненных, в форме*/
+	clientadding = textBox_addclient_name->Text + "&" + textBox_addclient_address->Text + "&" + maskedTextBox_addclient_phone->Text;
+	MessageBox::Show("Строка добавлена успешно!", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	this->Close();
+}
+};
 }

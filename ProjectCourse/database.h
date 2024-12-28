@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "info.h"
+#include "addclient.h"
 
 namespace ProjectCourse {
 
@@ -195,7 +196,7 @@ namespace ProjectCourse {
 			  this->menuStrip->MinimumSize = System::Drawing::Size(2000, 0);
 			  this->menuStrip->Name = L"menuStrip";
 			  this->menuStrip->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			  this->menuStrip->Size = System::Drawing::Size(2090, 53);
+			  this->menuStrip->Size = System::Drawing::Size(2330, 53);
 			  this->menuStrip->TabIndex = 0;
 			  this->menuStrip->Text = L"Меню";
 			  // 
@@ -254,7 +255,7 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_add_client->Name = L"ToolStripMenuItem_add_client";
 			  this->ToolStripMenuItem_add_client->Size = System::Drawing::Size(524, 54);
 			  this->ToolStripMenuItem_add_client->Text = L"Добавление клиента";
-			  this->ToolStripMenuItem_add_client->Click += gcnew System::EventHandler(this, &database::добавлениеКлиентаToolStripMenuItem_Click);
+			  this->ToolStripMenuItem_add_client->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_add_client_Click);
 			  // 
 			  // ToolStripMenuItem_add_supplier
 			  // 
@@ -749,7 +750,28 @@ private: System::Void ToolStripMenuItem_exit_Click(System::Object^ sender, Syste
 	Owner->Show();
 	this->Hide();
 }
-private: System::Void добавлениеКлиентаToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+/*Обработка кнопки добавление клиента*/
+private: System::Void ToolStripMenuItem_add_client_Click(System::Object^ sender, System::EventArgs^ e) {
+	addclient^ add = gcnew addclient();
+	add->ShowDialog();
+	if (add->clientadding != String::Empty) {
+		/*Добавление строки в таблицу*/
+		dataGridView_clients->Rows->Add();
+		/*Создание массива строк*/
+		cli::array<String^>^ newstr2;
+		newstr2 = add->clientadding->Split('&');
+		int count;
+		count = dataGridView_clients->RowCount - 1;
+		/*Нумерация строк с единицы*/
+		dataGridView_clients->Rows[count]->Cells[0]->Value = count + 1;
+		for (int i = 0; i < 3; i++)
+		{
+			dataGridView_clients->Rows[count]->Cells[i + 1]->Value = newstr2[i];
+		}
+		/*Так как данные были изменены, то меняем переменную save*/
+		save = false;
+	}
 }
+/**/
 };
 }
