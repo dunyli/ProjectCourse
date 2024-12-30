@@ -694,31 +694,125 @@ private: System::Void database_Load(System::Object^ sender, System::EventArgs^ e
 	/*Проверка существования файлов с данными*/
 
 	//Проверка существования файла с клиентами
-	if (IO::File::Exists("login.txt")) {}
+	if (IO::File::Exists("client.txt")) {
+		StreamReader^ str = gcnew StreamReader("client.txt");
+		String^ string;
+		int i = 0;
+		/*Пока не конец файла*/
+		while (str->Peek() >= 0) {
+			/*Добавление строки в таблицу*/
+			dataGridView_clients->Rows->Add();
+			string = str->ReadLine();
+			/*Создание массива строк*/
+			cli::array<String^>^ newstr1;
+			newstr1 = string->Split('&');
+			/*Нумерация строк в таблице с 1*/
+			dataGridView_clients->Rows[i]->Cells[0]->Value = i + 1;
+			for (int j = 0; j < 3; j++)
+			{
+				dataGridView_clients->Rows[i]->Cells[j + 1]->Value = newstr1[j];
+			}
+			i++;
+		}
+		str->Close();
+	}
 	else {
 		/*Создаем новый файл, если файл не создан*/
-		StreamWriter^ new_file = gcnew StreamWriter("login.txt");
+		StreamWriter^ new_file = gcnew StreamWriter("client.txt");
 		delete new_file;
 	}
 	//Проверка существования файла с поставщиками
-	if (IO::File::Exists("supplier.txt")) {}
+	if (IO::File::Exists("supplier.txt")) {
+		StreamReader^ str = gcnew StreamReader("supplier.txt");
+		String^ string;
+		int i = 0;
+		/*Пока не конец файла*/
+		while (str->Peek() >= 0) {
+			/*Добавление строки в таблицу*/
+			dataGridView_supplier->Rows->Add();
+			string = str->ReadLine();
+			/*Создание массива строк*/
+			cli::array<String^>^ newstr1;
+			newstr1 = string->Split('&');
+			/*Нумерация строк в таблице с 1*/
+			dataGridView_supplier->Rows[i]->Cells[0]->Value = i + 1;
+			for (int j = 0; j < 3; j++)
+			{
+				dataGridView_supplier->Rows[i]->Cells[j + 1]->Value = newstr1[j];
+			}
+			i++;
+		}
+		str->Close();
+	}
 	else {
 		/*Создаем новый файл, если файл не создан*/
 		StreamWriter^ new_file = gcnew StreamWriter("supplier.txt");
 		delete new_file;
 	}
 	//Проверка существования файла с заказами
-	if (IO::File::Exists("orderhistory.txt")) {}
+	if (IO::File::Exists("orderhistory.txt")) {
+		StreamReader^ str = gcnew StreamReader("orderhistory.txt");
+	}
 	else {
 		/*Создаем новый файл, если файл не создан*/
 		StreamWriter^ new_file = gcnew StreamWriter("orderhistory.txt");
 		delete new_file;
 	}
 	//Проверка существования файла с услугами
-	if (IO::File::Exists("services.txt")) {}
+	if (IO::File::Exists("services.txt")) {
+		StreamReader^ str = gcnew StreamReader("services.txt");
+		String^ string;
+		int i = 0;
+		/*Пока не конец файла*/
+		while (str->Peek() >= 0) {
+			/*Добавление строки в таблицу*/
+			dataGridView_service->Rows->Add();
+			string = str->ReadLine();
+			/*Создание массива строк*/
+			cli::array<String^>^ newstr1;
+			newstr1 = string->Split('&');
+			/*Нумерация строк в таблице с 1*/
+			dataGridView_service->Rows[i]->Cells[0]->Value = i + 1;
+			for (int j = 0; j < 3; j++)
+			{
+				dataGridView_service->Rows[i]->Cells[j + 1]->Value = newstr1[j];
+			}
+			i++;
+		}
+		str->Close();
+	}
 	else {
 		/*Создаем новый файл, если файл не создан*/
 		StreamWriter^ new_file = gcnew StreamWriter("services.txt");
+		delete new_file;
+	}
+
+	//Проверка существования файла с товарами
+	if (IO::File::Exists("products.txt")) {
+		StreamReader^ str = gcnew StreamReader("products.txt");
+		String^ string;
+		int i = 0;
+		/*Пока не конец файла*/
+		while (str->Peek() >= 0) {
+			/*Добавление строки в таблицу*/
+			dataGridView_product->Rows->Add();
+			string = str->ReadLine();
+			/*Создание массива строк*/
+			cli::array<String^>^ newstr1;
+			newstr1 = string->Split('&');
+			/*Нумерация строк в таблице с 1*/
+			dataGridView_product->Rows[i]->Cells[0]->Value = i + 1;
+			for (int j = 0; j < 3; j++)
+			{
+				dataGridView_product->Rows[i]->Cells[j + 1]->Value = newstr1[j];
+			}
+			i++;
+		}
+		str->Close();
+	}
+	else {
+		/*Создаем новый файл, если файл не создан*/
+		StreamWriter^ new_file = gcnew StreamWriter("products.txt");
 		delete new_file;
 	}
 }
@@ -737,7 +831,17 @@ private: System::Void database_FormClosing(System::Object^ sender, System::Windo
 
 /*Обработка кнопки Сохранить*/
 private: System::Void ToolStripMenuItem_safe_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	/*открываем файл для записи списка клиентов*/
+	StreamWriter^ client = gcnew StreamWriter("client.txt");
+	for (int i = 0; i < dataGridView_clients->RowCount; i++) {
+		for (int j = 1; j < 4; j++) {
+			client->Write(dataGridView_clients->Rows[i]->Cells[j]->Value + "&");
+		}
+		client->WriteLine();
+	}
+	client->Close();
+	
+	MessageBox::Show("Файл сохранён", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
 }
 
 /*Обработка нажатия на кнопку СПРАВКА*/
