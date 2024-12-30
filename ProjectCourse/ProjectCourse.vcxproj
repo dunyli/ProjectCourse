@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="addclient.cpp" />
+    <ClCompile Include="addorder.cpp" />
     <ClCompile Include="addproduct.cpp" />
     <ClCompile Include="addservice.cpp" />
     <ClCompile Include="addsupplier.cpp" />
@@ -130,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addclient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="addorder.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="addproduct.h">
