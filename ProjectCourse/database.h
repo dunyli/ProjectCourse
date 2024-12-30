@@ -297,12 +297,14 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_output_order->Name = L"ToolStripMenuItem_output_order";
 			  this->ToolStripMenuItem_output_order->Size = System::Drawing::Size(596, 54);
 			  this->ToolStripMenuItem_output_order->Text = L"Вывести список заказов";
+			  this->ToolStripMenuItem_output_order->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_output_order_Click);
 			  // 
 			  // ToolStripMenuItem_output_supplier
 			  // 
 			  this->ToolStripMenuItem_output_supplier->Name = L"ToolStripMenuItem_output_supplier";
 			  this->ToolStripMenuItem_output_supplier->Size = System::Drawing::Size(596, 54);
 			  this->ToolStripMenuItem_output_supplier->Text = L"Вывести список поставщиков";
+			  this->ToolStripMenuItem_output_supplier->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_output_supplier_Click);
 			  // 
 			  // ToolStripMenuItem_output_client
 			  // 
@@ -502,7 +504,7 @@ namespace ProjectCourse {
 				  this->product_Column1,
 					  this->product_Column2, this->product_Column3, this->product_Column4, this->product_Column5
 			  });
-			  this->dataGridView_product->Location = System::Drawing::Point(39, 220);
+			  this->dataGridView_product->Location = System::Drawing::Point(46, 239);
 			  this->dataGridView_product->Name = L"dataGridView_product";
 			  this->dataGridView_product->ReadOnly = true;
 			  this->dataGridView_product->RowHeadersWidth = 60;
@@ -968,6 +970,24 @@ private: System::Void ToolStripMenuItem_add_service_Click(System::Object^ sender
 		/*Так как данные были изменены, то меняем переменную save*/
 		save = false;
 	}
+
+}
+//Обработка кнопки вывод заказов
+private: System::Void ToolStripMenuItem_output_order_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+
+//Обработка кнопки вывод списка поставщиков
+private: System::Void ToolStripMenuItem_output_supplier_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*Скрываем все элементы*/
+	dataGridView_clients->Visible = false;
+	dataGridView_product->Visible = false;
+	dataGridView_service->Visible = false;
+	label_database_services->Visible = true;
+	label_database_products->Visible = true;
+	label_database_clients->Visible = true;
+	/*Делаем видимыми список поставщиков*/
+	dataGridView_supplier->Visible = true;
+	label_database_suppliers->Visible = true;
 }
 };
 }
