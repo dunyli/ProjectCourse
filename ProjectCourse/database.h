@@ -200,7 +200,7 @@ namespace ProjectCourse {
 			  this->menuStrip->MinimumSize = System::Drawing::Size(2000, 0);
 			  this->menuStrip->Name = L"menuStrip";
 			  this->menuStrip->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			  this->menuStrip->Size = System::Drawing::Size(2090, 53);
+			  this->menuStrip->Size = System::Drawing::Size(2330, 53);
 			  this->menuStrip->TabIndex = 0;
 			  this->menuStrip->Text = L"Меню";
 			  // 
@@ -311,6 +311,7 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_output_client->Name = L"ToolStripMenuItem_output_client";
 			  this->ToolStripMenuItem_output_client->Size = System::Drawing::Size(596, 54);
 			  this->ToolStripMenuItem_output_client->Text = L"Вывести список клиентов";
+			  this->ToolStripMenuItem_output_client->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_output_client_Click);
 			  // 
 			  // ToolStripMenuItem_output_product
 			  // 
@@ -982,12 +983,26 @@ private: System::Void ToolStripMenuItem_output_supplier_Click(System::Object^ se
 	dataGridView_clients->Visible = false;
 	dataGridView_product->Visible = false;
 	dataGridView_service->Visible = false;
-	label_database_services->Visible = true;
-	label_database_products->Visible = true;
-	label_database_clients->Visible = true;
+	label_database_services->Visible = false;
+	label_database_products->Visible = false;
+	label_database_clients->Visible = false;
 	/*Делаем видимыми список поставщиков*/
 	dataGridView_supplier->Visible = true;
 	label_database_suppliers->Visible = true;
+}
+
+//Обработка кнопки вывод списка клиентов
+private: System::Void ToolStripMenuItem_output_client_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*Скрываем все элементы*/
+	dataGridView_supplier->Visible = false;
+	dataGridView_product->Visible = false;
+	dataGridView_service->Visible = false;
+	label_database_services->Visible = false;
+	label_database_products->Visible = false;
+	label_database_suppliers->Visible = false;
+	/*Делаем видимыми список клиентов*/
+	dataGridView_clients->Visible = true;
+	label_database_clients->Visible = true;
 }
 };
 }
