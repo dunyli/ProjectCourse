@@ -318,6 +318,7 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_output_product->Name = L"ToolStripMenuItem_output_product";
 			  this->ToolStripMenuItem_output_product->Size = System::Drawing::Size(596, 54);
 			  this->ToolStripMenuItem_output_product->Text = L"Вывести список товаров";
+			  this->ToolStripMenuItem_output_product->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_output_product_Click);
 			  // 
 			  // ToolStripMenuItem_safe
 			  // 
@@ -1003,6 +1004,20 @@ private: System::Void ToolStripMenuItem_output_client_Click(System::Object^ send
 	/*Делаем видимыми список клиентов*/
 	dataGridView_clients->Visible = true;
 	label_database_clients->Visible = true;
+}
+
+//Обработка кнопки вывод списка продуктов
+private: System::Void ToolStripMenuItem_output_product_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*Скрываем все элементы*/
+	dataGridView_supplier->Visible = false;
+	dataGridView_clients->Visible = false;
+	dataGridView_service->Visible = false;
+	label_database_services->Visible = false;
+	label_database_suppliers->Visible = false;
+	label_database_clients->Visible = false;
+	/*Делаем видимыми список продуктов*/
+	dataGridView_product->Visible = true;
+	label_database_products->Visible = true;
 }
 };
 }
