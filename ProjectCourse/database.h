@@ -4,6 +4,7 @@
 #include "addsupplier.h"
 #include "addproduct.h"
 #include "addservice.h"
+#include "addorder.h"
 
 namespace ProjectCourse {
 
@@ -89,30 +90,84 @@ namespace ProjectCourse {
 	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_order;
 	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_service;
 	private: System::Windows::Forms::DataGridView^ dataGridView_clients;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column4;
+
+
+
+
 	private: System::Windows::Forms::DataGridView^ dataGridView_supplier;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column4;
+
+
+
+
 	private: System::Windows::Forms::DataGridView^ dataGridView_product;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column5;
+
+
+
+
+
 	private: System::Windows::Forms::DataGridView^ dataGridView_service;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column4;
+
+
+
+
 	private: System::Windows::Forms::Label^ label_database_clients;
 	private: System::Windows::Forms::Label^ label_database_suppliers;
 	private: System::Windows::Forms::Label^ label_database_products;
 	private: System::Windows::Forms::Label^ label_database_services;
+	private: System::Windows::Forms::Label^ label_database_order;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_output_service;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column3;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column4;
+
+
+
+
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column3;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column4;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ product_Column5;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column3;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ service_Column4;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column3;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column4;
+private: System::Windows::Forms::DataGridView^ dataGridView_order;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
+
+
+
+
+
+
+
+
+
 
 	/*Логическая переменная для проверки изменения данных*/
 	public: bool save = true;
@@ -141,6 +196,7 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_output_supplier = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_output_client = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_output_product = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_output_service = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_safe = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_delet_data = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_delete_product = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -176,11 +232,17 @@ namespace ProjectCourse {
 			  this->label_database_suppliers = (gcnew System::Windows::Forms::Label());
 			  this->label_database_products = (gcnew System::Windows::Forms::Label());
 			  this->label_database_services = (gcnew System::Windows::Forms::Label());
+			  this->label_database_order = (gcnew System::Windows::Forms::Label());
+			  this->dataGridView_order = (gcnew System::Windows::Forms::DataGridView());
+			  this->order_Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->order_Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->order_Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			  this->menuStrip->SuspendLayout();
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_clients))->BeginInit();
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_supplier))->BeginInit();
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_product))->BeginInit();
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_service))->BeginInit();
+			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_order))->BeginInit();
 			  this->SuspendLayout();
 			  // 
 			  // menuStrip
@@ -200,7 +262,7 @@ namespace ProjectCourse {
 			  this->menuStrip->MinimumSize = System::Drawing::Size(2000, 0);
 			  this->menuStrip->Name = L"menuStrip";
 			  this->menuStrip->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			  this->menuStrip->Size = System::Drawing::Size(2330, 53);
+			  this->menuStrip->Size = System::Drawing::Size(2090, 53);
 			  this->menuStrip->TabIndex = 0;
 			  this->menuStrip->Text = L"Меню";
 			  // 
@@ -209,6 +271,7 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_make_order->Name = L"ToolStripMenuItem_make_order";
 			  this->ToolStripMenuItem_make_order->Size = System::Drawing::Size(282, 49);
 			  this->ToolStripMenuItem_make_order->Text = L"Создание заказа";
+			  this->ToolStripMenuItem_make_order->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_make_order_Click);
 			  // 
 			  // ToolStripMenuItem_search_data
 			  // 
@@ -284,9 +347,9 @@ namespace ProjectCourse {
 			  // 
 			  // ToolStripMenuItem_output_data
 			  // 
-			  this->ToolStripMenuItem_output_data->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			  this->ToolStripMenuItem_output_data->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				  this->ToolStripMenuItem_output_order,
-					  this->ToolStripMenuItem_output_supplier, this->ToolStripMenuItem_output_client, this->ToolStripMenuItem_output_product
+					  this->ToolStripMenuItem_output_supplier, this->ToolStripMenuItem_output_client, this->ToolStripMenuItem_output_product, this->ToolStripMenuItem_output_service
 			  });
 			  this->ToolStripMenuItem_output_data->Name = L"ToolStripMenuItem_output_data";
 			  this->ToolStripMenuItem_output_data->Size = System::Drawing::Size(252, 49);
@@ -319,6 +382,13 @@ namespace ProjectCourse {
 			  this->ToolStripMenuItem_output_product->Size = System::Drawing::Size(596, 54);
 			  this->ToolStripMenuItem_output_product->Text = L"Вывести список товаров";
 			  this->ToolStripMenuItem_output_product->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_output_product_Click);
+			  // 
+			  // ToolStripMenuItem_output_service
+			  // 
+			  this->ToolStripMenuItem_output_service->Name = L"ToolStripMenuItem_output_service";
+			  this->ToolStripMenuItem_output_service->Size = System::Drawing::Size(596, 54);
+			  this->ToolStripMenuItem_output_service->Text = L"Вывести список услуг";
+			  this->ToolStripMenuItem_output_service->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_output_service_Click);
 			  // 
 			  // ToolStripMenuItem_safe
 			  // 
@@ -402,12 +472,12 @@ namespace ProjectCourse {
 				  this->client_Column1,
 					  this->client_Column2, this->client_Column3, this->client_Column4
 			  });
-			  this->dataGridView_clients->Location = System::Drawing::Point(185, 164);
+			  this->dataGridView_clients->Location = System::Drawing::Point(496, 165);
 			  this->dataGridView_clients->Name = L"dataGridView_clients";
 			  this->dataGridView_clients->ReadOnly = true;
 			  this->dataGridView_clients->RowHeadersWidth = 60;
 			  this->dataGridView_clients->RowTemplate->Height = 33;
-			  this->dataGridView_clients->Size = System::Drawing::Size(1656, 442);
+			  this->dataGridView_clients->Size = System::Drawing::Size(1112, 442);
 			  this->dataGridView_clients->TabIndex = 1;
 			  this->dataGridView_clients->Visible = false;
 			  // 
@@ -417,7 +487,7 @@ namespace ProjectCourse {
 			  this->client_Column1->MinimumWidth = 10;
 			  this->client_Column1->Name = L"client_Column1";
 			  this->client_Column1->ReadOnly = true;
-			  this->client_Column1->Width = 400;
+			  this->client_Column1->Width = 180;
 			  // 
 			  // client_Column2
 			  // 
@@ -425,7 +495,7 @@ namespace ProjectCourse {
 			  this->client_Column2->MinimumWidth = 10;
 			  this->client_Column2->Name = L"client_Column2";
 			  this->client_Column2->ReadOnly = true;
-			  this->client_Column2->Width = 400;
+			  this->client_Column2->Width = 300;
 			  // 
 			  // client_Column3
 			  // 
@@ -433,7 +503,7 @@ namespace ProjectCourse {
 			  this->client_Column3->MinimumWidth = 10;
 			  this->client_Column3->Name = L"client_Column3";
 			  this->client_Column3->ReadOnly = true;
-			  this->client_Column3->Width = 400;
+			  this->client_Column3->Width = 350;
 			  // 
 			  // client_Column4
 			  // 
@@ -441,7 +511,7 @@ namespace ProjectCourse {
 			  this->client_Column4->MinimumWidth = 10;
 			  this->client_Column4->Name = L"client_Column4";
 			  this->client_Column4->ReadOnly = true;
-			  this->client_Column4->Width = 400;
+			  this->client_Column4->Width = 220;
 			  // 
 			  // dataGridView_supplier
 			  // 
@@ -454,12 +524,12 @@ namespace ProjectCourse {
 				  this->supplier_Column1,
 					  this->supplier_Column2, this->supplier_Column3, this->supplier_Column4
 			  });
-			  this->dataGridView_supplier->Location = System::Drawing::Point(100, 211);
+			  this->dataGridView_supplier->Location = System::Drawing::Point(425, 239);
 			  this->dataGridView_supplier->Name = L"dataGridView_supplier";
 			  this->dataGridView_supplier->ReadOnly = true;
 			  this->dataGridView_supplier->RowHeadersWidth = 60;
 			  this->dataGridView_supplier->RowTemplate->Height = 33;
-			  this->dataGridView_supplier->Size = System::Drawing::Size(1833, 442);
+			  this->dataGridView_supplier->Size = System::Drawing::Size(1211, 442);
 			  this->dataGridView_supplier->TabIndex = 2;
 			  this->dataGridView_supplier->Visible = false;
 			  // 
@@ -469,7 +539,7 @@ namespace ProjectCourse {
 			  this->supplier_Column1->MinimumWidth = 10;
 			  this->supplier_Column1->Name = L"supplier_Column1";
 			  this->supplier_Column1->ReadOnly = true;
-			  this->supplier_Column1->Width = 420;
+			  this->supplier_Column1->Width = 250;
 			  // 
 			  // supplier_Column2
 			  // 
@@ -477,7 +547,7 @@ namespace ProjectCourse {
 			  this->supplier_Column2->MinimumWidth = 10;
 			  this->supplier_Column2->Name = L"supplier_Column2";
 			  this->supplier_Column2->ReadOnly = true;
-			  this->supplier_Column2->Width = 500;
+			  this->supplier_Column2->Width = 300;
 			  // 
 			  // supplier_Column3
 			  // 
@@ -485,7 +555,7 @@ namespace ProjectCourse {
 			  this->supplier_Column3->MinimumWidth = 10;
 			  this->supplier_Column3->Name = L"supplier_Column3";
 			  this->supplier_Column3->ReadOnly = true;
-			  this->supplier_Column3->Width = 400;
+			  this->supplier_Column3->Width = 350;
 			  // 
 			  // supplier_Column4
 			  // 
@@ -493,7 +563,7 @@ namespace ProjectCourse {
 			  this->supplier_Column4->MinimumWidth = 10;
 			  this->supplier_Column4->Name = L"supplier_Column4";
 			  this->supplier_Column4->ReadOnly = true;
-			  this->supplier_Column4->Width = 450;
+			  this->supplier_Column4->Width = 250;
 			  // 
 			  // dataGridView_product
 			  // 
@@ -506,12 +576,12 @@ namespace ProjectCourse {
 				  this->product_Column1,
 					  this->product_Column2, this->product_Column3, this->product_Column4, this->product_Column5
 			  });
-			  this->dataGridView_product->Location = System::Drawing::Point(46, 239);
+			  this->dataGridView_product->Location = System::Drawing::Point(383, 383);
 			  this->dataGridView_product->Name = L"dataGridView_product";
 			  this->dataGridView_product->ReadOnly = true;
 			  this->dataGridView_product->RowHeadersWidth = 60;
 			  this->dataGridView_product->RowTemplate->Height = 33;
-			  this->dataGridView_product->Size = System::Drawing::Size(1931, 442);
+			  this->dataGridView_product->Size = System::Drawing::Size(1293, 442);
 			  this->dataGridView_product->TabIndex = 3;
 			  this->dataGridView_product->Visible = false;
 			  // 
@@ -521,7 +591,7 @@ namespace ProjectCourse {
 			  this->product_Column1->MinimumWidth = 10;
 			  this->product_Column1->Name = L"product_Column1";
 			  this->product_Column1->ReadOnly = true;
-			  this->product_Column1->Width = 350;
+			  this->product_Column1->Width = 180;
 			  // 
 			  // product_Column2
 			  // 
@@ -529,7 +599,7 @@ namespace ProjectCourse {
 			  this->product_Column2->MinimumWidth = 10;
 			  this->product_Column2->Name = L"product_Column2";
 			  this->product_Column2->ReadOnly = true;
-			  this->product_Column2->Width = 400;
+			  this->product_Column2->Width = 300;
 			  // 
 			  // product_Column3
 			  // 
@@ -537,7 +607,7 @@ namespace ProjectCourse {
 			  this->product_Column3->MinimumWidth = 10;
 			  this->product_Column3->Name = L"product_Column3";
 			  this->product_Column3->ReadOnly = true;
-			  this->product_Column3->Width = 450;
+			  this->product_Column3->Width = 300;
 			  // 
 			  // product_Column4
 			  // 
@@ -545,7 +615,7 @@ namespace ProjectCourse {
 			  this->product_Column4->MinimumWidth = 10;
 			  this->product_Column4->Name = L"product_Column4";
 			  this->product_Column4->ReadOnly = true;
-			  this->product_Column4->Width = 300;
+			  this->product_Column4->Width = 200;
 			  // 
 			  // product_Column5
 			  // 
@@ -553,7 +623,7 @@ namespace ProjectCourse {
 			  this->product_Column5->MinimumWidth = 10;
 			  this->product_Column5->Name = L"product_Column5";
 			  this->product_Column5->ReadOnly = true;
-			  this->product_Column5->Width = 450;
+			  this->product_Column5->Width = 250;
 			  // 
 			  // dataGridView_service
 			  // 
@@ -566,12 +636,12 @@ namespace ProjectCourse {
 				  this->service_Column1,
 					  this->service_Column2, this->service_Column3, this->service_Column4
 			  });
-			  this->dataGridView_service->Location = System::Drawing::Point(144, 272);
+			  this->dataGridView_service->Location = System::Drawing::Point(562, 165);
 			  this->dataGridView_service->Name = L"dataGridView_service";
 			  this->dataGridView_service->ReadOnly = true;
 			  this->dataGridView_service->RowHeadersWidth = 60;
 			  this->dataGridView_service->RowTemplate->Height = 33;
-			  this->dataGridView_service->Size = System::Drawing::Size(1661, 442);
+			  this->dataGridView_service->Size = System::Drawing::Size(944, 442);
 			  this->dataGridView_service->TabIndex = 4;
 			  this->dataGridView_service->Visible = false;
 			  // 
@@ -581,7 +651,7 @@ namespace ProjectCourse {
 			  this->service_Column1->MinimumWidth = 10;
 			  this->service_Column1->Name = L"service_Column1";
 			  this->service_Column1->ReadOnly = true;
-			  this->service_Column1->Width = 350;
+			  this->service_Column1->Width = 180;
 			  // 
 			  // service_Column2
 			  // 
@@ -589,7 +659,7 @@ namespace ProjectCourse {
 			  this->service_Column2->MinimumWidth = 10;
 			  this->service_Column2->Name = L"service_Column2";
 			  this->service_Column2->ReadOnly = true;
-			  this->service_Column2->Width = 400;
+			  this->service_Column2->Width = 250;
 			  // 
 			  // service_Column3
 			  // 
@@ -597,7 +667,7 @@ namespace ProjectCourse {
 			  this->service_Column3->MinimumWidth = 10;
 			  this->service_Column3->Name = L"service_Column3";
 			  this->service_Column3->ReadOnly = true;
-			  this->service_Column3->Width = 450;
+			  this->service_Column3->Width = 250;
 			  // 
 			  // service_Column4
 			  // 
@@ -605,7 +675,7 @@ namespace ProjectCourse {
 			  this->service_Column4->MinimumWidth = 10;
 			  this->service_Column4->Name = L"service_Column4";
 			  this->service_Column4->ReadOnly = true;
-			  this->service_Column4->Width = 400;
+			  this->service_Column4->Width = 200;
 			  // 
 			  // label_database_clients
 			  // 
@@ -659,12 +729,71 @@ namespace ProjectCourse {
 			  this->label_database_services->Text = L"Список услуг";
 			  this->label_database_services->Visible = false;
 			  // 
+			  // label_database_order
+			  // 
+			  this->label_database_order->Anchor = System::Windows::Forms::AnchorStyles::None;
+			  this->label_database_order->AutoSize = true;
+			  this->label_database_order->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
+				  System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			  this->label_database_order->Location = System::Drawing::Point(834, 84);
+			  this->label_database_order->Name = L"label_database_order";
+			  this->label_database_order->Size = System::Drawing::Size(417, 61);
+			  this->label_database_order->TabIndex = 9;
+			  this->label_database_order->Text = L"Список заказов";
+			  this->label_database_order->Visible = false;
+			  // 
+			  // dataGridView_order
+			  // 
+			  this->dataGridView_order->AllowUserToAddRows = false;
+			  this->dataGridView_order->AllowUserToDeleteRows = false;
+			  this->dataGridView_order->AllowUserToOrderColumns = true;
+			  this->dataGridView_order->Anchor = System::Windows::Forms::AnchorStyles::None;
+			  this->dataGridView_order->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			  this->dataGridView_order->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				  this->order_Column1,
+					  this->order_Column2, this->order_Column3
+			  });
+			  this->dataGridView_order->Location = System::Drawing::Point(411, 178);
+			  this->dataGridView_order->Name = L"dataGridView_order";
+			  this->dataGridView_order->ReadOnly = true;
+			  this->dataGridView_order->RowHeadersWidth = 60;
+			  this->dataGridView_order->RowTemplate->Height = 33;
+			  this->dataGridView_order->Size = System::Drawing::Size(1244, 442);
+			  this->dataGridView_order->TabIndex = 10;
+			  this->dataGridView_order->Visible = false;
+			  // 
+			  // order_Column1
+			  // 
+			  this->order_Column1->HeaderText = L"Номер заказа";
+			  this->order_Column1->MinimumWidth = 10;
+			  this->order_Column1->Name = L"order_Column1";
+			  this->order_Column1->ReadOnly = true;
+			  this->order_Column1->Width = 180;
+			  // 
+			  // order_Column2
+			  // 
+			  this->order_Column2->HeaderText = L"Данные заказа";
+			  this->order_Column2->MinimumWidth = 10;
+			  this->order_Column2->Name = L"order_Column2";
+			  this->order_Column2->ReadOnly = true;
+			  this->order_Column2->Width = 800;
+			  // 
+			  // order_Column3
+			  // 
+			  this->order_Column3->HeaderText = L"Итоговая стоимость";
+			  this->order_Column3->MinimumWidth = 10;
+			  this->order_Column3->Name = L"order_Column3";
+			  this->order_Column3->ReadOnly = true;
+			  this->order_Column3->Width = 200;
+			  // 
 			  // database
 			  // 
 			  this->AutoScaleDimensions = System::Drawing::SizeF(22, 42);
 			  this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			  this->BackColor = System::Drawing::SystemColors::Info;
 			  this->ClientSize = System::Drawing::Size(2174, 763);
+			  this->Controls->Add(this->dataGridView_order);
+			  this->Controls->Add(this->label_database_order);
 			  this->Controls->Add(this->label_database_services);
 			  this->Controls->Add(this->label_database_products);
 			  this->Controls->Add(this->label_database_suppliers);
@@ -688,6 +817,7 @@ namespace ProjectCourse {
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_supplier))->EndInit();
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_product))->EndInit();
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_service))->EndInit();
+			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_order))->EndInit();
 			  this->ResumeLayout(false);
 			  this->PerformLayout();
 
@@ -845,7 +975,17 @@ private: System::Void ToolStripMenuItem_safe_Click(System::Object^ sender, Syste
 	}
 	client->Close();
 	
-	MessageBox::Show("Файл сохранён", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	/*открываем файл для записи списка поставщиков*/
+	StreamWriter^ supplier = gcnew StreamWriter("supplier.txt");
+	for (int i = 0; i < dataGridView_supplier->RowCount; i++) {
+		for (int j = 1; j < 4; j++) {
+			supplier->Write(dataGridView_supplier->Rows[i]->Cells[j]->Value + "&");
+		}
+		supplier->WriteLine();
+	}
+	supplier->Close();
+
+	MessageBox::Show("Данные сохранены!", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
 }
 
 /*Обработка нажатия на кнопку СПРАВКА*/
@@ -972,15 +1112,29 @@ private: System::Void ToolStripMenuItem_add_service_Click(System::Object^ sender
 		/*Так как данные были изменены, то меняем переменную save*/
 		save = false;
 	}
-
 }
-//Обработка кнопки вывод заказов
+//Обработка кнопки вывод списка заказов
 private: System::Void ToolStripMenuItem_output_order_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*Скрываем все элементы*/
+	dataGridView_clients->Visible = false;
+	dataGridView_product->Visible = false;
+	dataGridView_service->Visible = false;
+	label_database_services->Visible = false;
+	label_database_products->Visible = false;
+	label_database_clients->Visible = false;
+	dataGridView_supplier->Visible = false;
+	label_database_suppliers->Visible = false;
+	/*Делаем видимыми список заказов*/
+	dataGridView_order->Visible = true;
+	label_database_order->Visible = true;
 }
 
 //Обработка кнопки вывод списка поставщиков
 private: System::Void ToolStripMenuItem_output_supplier_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*Скрываем все элементы*/
+	dataGridView_order->Visible = false;
+	label_database_order->Visible = false;
+
 	dataGridView_clients->Visible = false;
 	dataGridView_product->Visible = false;
 	dataGridView_service->Visible = false;
@@ -995,6 +1149,9 @@ private: System::Void ToolStripMenuItem_output_supplier_Click(System::Object^ se
 //Обработка кнопки вывод списка клиентов
 private: System::Void ToolStripMenuItem_output_client_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*Скрываем все элементы*/
+	dataGridView_order->Visible = false;
+	label_database_order->Visible = false;
+
 	dataGridView_supplier->Visible = false;
 	dataGridView_product->Visible = false;
 	dataGridView_service->Visible = false;
@@ -1009,6 +1166,9 @@ private: System::Void ToolStripMenuItem_output_client_Click(System::Object^ send
 //Обработка кнопки вывод списка продуктов
 private: System::Void ToolStripMenuItem_output_product_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*Скрываем все элементы*/
+	dataGridView_order->Visible = false;
+	label_database_order->Visible = false;
+
 	dataGridView_supplier->Visible = false;
 	dataGridView_clients->Visible = false;
 	dataGridView_service->Visible = false;
@@ -1018,6 +1178,98 @@ private: System::Void ToolStripMenuItem_output_product_Click(System::Object^ sen
 	/*Делаем видимыми список продуктов*/
 	dataGridView_product->Visible = true;
 	label_database_products->Visible = true;
+}
+
+//Обработка кнопки вывод списка услуг
+private: System::Void ToolStripMenuItem_output_service_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*Скрываем все элементы*/
+	dataGridView_order->Visible = false;
+	label_database_order->Visible = false;
+
+	dataGridView_supplier->Visible = false;
+	dataGridView_clients->Visible = false;
+	dataGridView_service->Visible = false;
+	label_database_services->Visible = false;
+	label_database_suppliers->Visible = false;
+	label_database_clients->Visible = false;
+	dataGridView_product->Visible = false;
+	label_database_products->Visible = false;
+	/*Делаем видимыми список услуг*/
+	dataGridView_service->Visible = true;
+	label_database_services->Visible = true;
+}
+
+//Обработка кнопки создание заказа
+private: System::Void ToolStripMenuItem_make_order_Click(System::Object^ sender, System::EventArgs^ e) {
+	addorder^ add = gcnew addorder();
+	// Получаем значения из первых двух столбцов DataGridView
+	List<String^>^ values = gcnew List<String^>(); // Использование List из System::Collections::Generic
+	for each (DataGridViewRow^ row in dataGridView_clients->Rows)
+	{
+		if (row->Cells[0]->Value != nullptr && row->Cells[1]->Value != nullptr)
+		{
+			// Склеиваем значения из первых двух столбцов
+			String^ concatenatedValue = row->Cells[0]->Value->ToString() + ". " + row->Cells[1]->Value->ToString();
+			values->Add(concatenatedValue); // Добавляем склеенные строки в список
+		}
+	}
+
+	List<String^>^ vals = gcnew List<String^>(); // Использование List из System::Collections::Generic
+	List<int>^ max_count = gcnew List<int>();
+	List<int>^ price = gcnew List<int>();
+	for each (DataGridViewRow ^ row in dataGridView_product->Rows)
+	{
+		if (row->Cells[0]->Value != nullptr && row->Cells[1]->Value != nullptr && row->Cells[3]->Value != nullptr)
+		{
+			// Склеиваем значения
+			String^ conValue = row->Cells[0]->Value->ToString() + ". " + row->Cells[1]->Value->ToString() + ", цена: " + row->Cells[3]->Value->ToString();
+			vals->Add(conValue); // Добавляем склеенные строки в список
+			max_count->Add(Convert::ToInt32(row->Cells[4]->Value)); //Добавление количества товара на складе в список
+			price->Add(Convert::ToInt32(row->Cells[3]->Value)); //Добавление цен товаров в список
+		}
+	}
+
+	List<String^>^ val = gcnew List<String^>(); // Использование List из System::Collections::Generic
+	List<int>^ price_service = gcnew List<int>();
+	for each (DataGridViewRow ^ row in dataGridView_service->Rows)
+	{
+		if (row->Cells[0]->Value != nullptr && row->Cells[1]->Value != nullptr && row->Cells[2]->Value != nullptr && row->Cells[3]->Value != nullptr)
+		{
+			// Склеиваем значения
+			String^ conValue = row->Cells[0]->Value->ToString() + ". " + row->Cells[1]->Value->ToString() + ", тип животного: " + row->Cells[2]->Value->ToString() + ", цена: " + row->Cells[3]->Value->ToString();
+			val->Add(conValue); // Добавляем склеенные строки в список
+			price_service->Add(Convert::ToInt32(row->Cells[3]->Value)); //Добавление цен услуги в список
+		}
+	}
+
+	// Проверка на пустоту списков
+	if (values->Count > 0) // Если список не пустой
+	{
+		if (vals->Count > 0 || val->Count > 0)
+		{
+			add->SetValues_comboBox_client(values);
+			add->SetValues_comboBox_product(vals, max_count, price);
+			add->SetValues_comboBox_service(val, price_service);
+			add->ShowDialog();
+			if (add->orderadding != gcnew List<String^>() && add->result_price != 0) {
+				/*Добавление строки в таблицу*/
+				dataGridView_order->Rows->Add();
+				/*Создание массива строк*/
+				List<String^>^ newstr2;
+				newstr2 = add->orderadding;
+				int count;
+				count = dataGridView_order->RowCount - 1;
+				/*Нумерация строк с единицы*/
+				dataGridView_order->Rows[count]->Cells[0]->Value = count + 1;
+				dataGridView_order->Rows[count]->Cells[1]->Value = newstr2;
+				dataGridView_order->Rows[count]->Cells[2]->Value = add->result_price;
+				/*Так как данные были изменены, то меняем переменную save*/
+				save = false;
+			}
+		}
+		else MessageBox::Show("Перед созданием заказа добавьте товар или услугу!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
+	else MessageBox::Show("Перед созданием заказа добавьте клиента!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 }
 };
 }

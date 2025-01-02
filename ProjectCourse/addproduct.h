@@ -207,6 +207,7 @@ namespace ProjectCourse {
 			// comboBox_supplier
 			// 
 			this->comboBox_supplier->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->comboBox_supplier->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox_supplier->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
 			this->comboBox_supplier->FormattingEnabled = true;
