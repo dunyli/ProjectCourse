@@ -37,10 +37,6 @@ namespace ProjectCourse {
 	private: System::Windows::Forms::Button^ button_addorder_service;
 	private: System::Windows::Forms::Button^ button_addorder_product;
 	private: System::Windows::Forms::TextBox^ textBox_addorder_price;
-
-
-
-
 	private: System::Windows::Forms::Label^ label_addorder_count;
 
 	public: void SetValues_comboBox_client(List<String^>^ values) {
@@ -522,6 +518,7 @@ namespace ProjectCourse {
 		textBox_addorder_order->AppendText("Стоимость: " + counter.ToString());
 		result_price += counter;
 		textBox_addorder_price->Text = "Итоговая стоимость заказа: " + result_price;
+		max_product[number] = max_product[number] - Convert::ToInt32(textBox_addorder_count->Text);
 	}
 };
 }

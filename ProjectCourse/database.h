@@ -472,7 +472,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 				  this->client_Column1,
 					  this->client_Column2, this->client_Column3, this->client_Column4
 			  });
-			  this->dataGridView_clients->Location = System::Drawing::Point(496, 165);
+			  this->dataGridView_clients->Location = System::Drawing::Point(397, 148);
 			  this->dataGridView_clients->Name = L"dataGridView_clients";
 			  this->dataGridView_clients->ReadOnly = true;
 			  this->dataGridView_clients->RowHeadersWidth = 60;
@@ -524,7 +524,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 				  this->supplier_Column1,
 					  this->supplier_Column2, this->supplier_Column3, this->supplier_Column4
 			  });
-			  this->dataGridView_supplier->Location = System::Drawing::Point(425, 239);
+			  this->dataGridView_supplier->Location = System::Drawing::Point(277, 239);
 			  this->dataGridView_supplier->Name = L"dataGridView_supplier";
 			  this->dataGridView_supplier->ReadOnly = true;
 			  this->dataGridView_supplier->RowHeadersWidth = 60;
@@ -576,7 +576,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 				  this->product_Column1,
 					  this->product_Column2, this->product_Column3, this->product_Column4, this->product_Column5
 			  });
-			  this->dataGridView_product->Location = System::Drawing::Point(383, 383);
+			  this->dataGridView_product->Location = System::Drawing::Point(346, 252);
 			  this->dataGridView_product->Name = L"dataGridView_product";
 			  this->dataGridView_product->ReadOnly = true;
 			  this->dataGridView_product->RowHeadersWidth = 60;
@@ -753,7 +753,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 				  this->order_Column1,
 					  this->order_Column2, this->order_Column3
 			  });
-			  this->dataGridView_order->Location = System::Drawing::Point(411, 178);
+			  this->dataGridView_order->Location = System::Drawing::Point(596, 335);
 			  this->dataGridView_order->Name = L"dataGridView_order";
 			  this->dataGridView_order->ReadOnly = true;
 			  this->dataGridView_order->RowHeadersWidth = 60;
@@ -984,6 +984,36 @@ private: System::Void ToolStripMenuItem_safe_Click(System::Object^ sender, Syste
 		supplier->WriteLine();
 	}
 	supplier->Close();
+
+	/*открываем файл для записи списка товаров*/
+	StreamWriter^ product = gcnew StreamWriter("products.txt");
+	for (int i = 0; i < dataGridView_product->RowCount; i++) {
+		for (int j = 1; j < 5; j++) {
+			product->Write(dataGridView_product->Rows[i]->Cells[j]->Value + "&");
+		}
+		product->WriteLine();
+	}
+	product->Close();
+
+	/*открываем файл для записи списка услуг*/
+	StreamWriter^ service = gcnew StreamWriter("services.txt");
+	for (int i = 0; i < dataGridView_service->RowCount; i++) {
+		for (int j = 1; j < 4; j++) {
+			service->Write(dataGridView_service->Rows[i]->Cells[j]->Value + "&");
+		}
+		service->WriteLine();
+	}
+	service->Close();
+
+	/*открываем файл для записи списка заказов*/
+	StreamWriter^ order = gcnew StreamWriter("orderhistory.txt");
+	for (int i = 0; i < dataGridView_order->RowCount; i++) {
+		for (int j = 1; j < 3; j++) {
+			order->Write(dataGridView_order->Rows[i]->Cells[j]->Value + "&");
+		}
+		order->WriteLine();
+	}
+	order->Close();
 
 	MessageBox::Show("Данные сохранены!", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
 }
@@ -1265,6 +1295,12 @@ private: System::Void ToolStripMenuItem_make_order_Click(System::Object^ sender,
 				dataGridView_order->Rows[count]->Cells[2]->Value = add->result_price;
 				/*Так как данные были изменены, то меняем переменную save*/
 				save = false;
+				int j = 0;
+				for each (DataGridViewRow^ row in dataGridView_product->Rows)
+				{
+					row->Cells[4]->Value = add->max_product[j];
+					j++;
+				}
 			}
 		}
 		else MessageBox::Show("Перед созданием заказа добавьте товар или услугу!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
