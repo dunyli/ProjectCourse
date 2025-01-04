@@ -127,6 +127,7 @@
     <ClCompile Include="database.cpp" />
     <ClCompile Include="editclient.cpp" />
     <ClCompile Include="editproduct.cpp" />
+    <ClCompile Include="editservice.cpp" />
     <ClCompile Include="editsupplier.cpp" />
     <ClCompile Include="info.cpp" />
     <ClCompile Include="login.cpp" />
@@ -158,6 +159,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="editproduct.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="editservice.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="editsupplier.h">
