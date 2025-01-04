@@ -6,6 +6,7 @@
 #include "addservice.h"
 #include "addorder.h"
 #include "editclient.h"
+#include "editsupplier.h"
 
 namespace ProjectCourse {
 
@@ -417,6 +418,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->ToolStripMenuItem_edit_product->Name = L"ToolStripMenuItem_edit_product";
 			  this->ToolStripMenuItem_edit_product->Size = System::Drawing::Size(580, 54);
 			  this->ToolStripMenuItem_edit_product->Text = L"Редактировать товары";
+			  this->ToolStripMenuItem_edit_product->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_edit_product_Click);
 			  // 
 			  // ToolStripMenuItem_edit_supplier
 			  // 
@@ -528,7 +530,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 				  this->supplier_Column1,
 					  this->supplier_Column2, this->supplier_Column3, this->supplier_Column4
 			  });
-			  this->dataGridView_supplier->Location = System::Drawing::Point(238, 252);
+			  this->dataGridView_supplier->Location = System::Drawing::Point(211, 252);
 			  this->dataGridView_supplier->Name = L"dataGridView_supplier";
 			  this->dataGridView_supplier->ReadOnly = true;
 			  this->dataGridView_supplier->RowHeadersWidth = 60;
@@ -1375,6 +1377,52 @@ private: System::Void ToolStripMenuItem_edit_client_Click(System::Object^ sender
 
 //Редактирование данных поставщиков
 private: System::Void ToolStripMenuItem_edit_supplier_Click(System::Object^ sender, System::EventArgs^ e) {
+	editsupplier^ edsupplier = gcnew editsupplier();
+	// Получаем значения из первых двух столбцов DataGridView
+	List<String^>^ phone_list = gcnew List<String^>(); // Использование List из System::Collections::Generic
+	List<String^>^ address_list = gcnew List<String^>();
+	List<String^>^ values = gcnew List<String^>();
+	for each (DataGridViewRow ^ row in dataGridView_supplier->Rows)
+	{
+		if (row->Cells[0]->Value != nullptr && row->Cells[1]->Value != nullptr)
+		{
+			// Склеиваем значения из первых двух столбцов
+			String^ concatenatedValue = row->Cells[0]->Value->ToString() + ". " + row->Cells[1]->Value->ToString();
+			values->Add(concatenatedValue); // Добавляем склеенные строки в список
+			address_list->Add(row->Cells[2]->Value->ToString());
+			phone_list->Add(row->Cells[3]->Value->ToString());
+		}
+	}
+	// Проверка на пустоту списков
+	if (values->Count > 0) // Если список не пустой
+	{
+		edsupplier->SetValues_comboBox_suppliername(values, phone_list, address_list);
+		edsupplier->ShowDialog();
+		/*Удаление строки*/
+		if (edsupplier->supplier_delete != 0) {
+			dataGridView_supplier->Rows->RemoveAt(edsupplier->supplier_delete - 1);
+			for (int i = 0; i < dataGridView_supplier->Rows->Count; i++) {
+				dataGridView_supplier->Rows[i]->Cells[0]->Value = i + 1;
+			}
+			save = false;
+		}
+		else if (edsupplier->edit_supplier != String::Empty && edsupplier->number_edit_supplier != 0) {
+			/*Создание массива строк*/
+			cli::array<String^>^ newstr2;
+			newstr2 = edsupplier->edit_supplier->Split('&');
+			for (int i = 1; i < 4; i++)
+			{
+				dataGridView_supplier->Rows[edsupplier->number_edit_supplier - 1]->Cells[i]->Value = newstr2[i - 1];
+			}
+			/*Так как данные были изменены, то меняем переменную save*/
+			save = false;
+		}
+	}
+	else MessageBox::Show("Перед редактированием добавьте поставщика!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+}
+
+//Редактирование данных товаров
+private: System::Void ToolStripMenuItem_edit_product_Click(System::Object^ sender, System::EventArgs^ e) {
 
 }
 };
