@@ -163,12 +163,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 
 
 
-
-
-
-
-
-
 	/*Логическая переменная для проверки изменения данных*/
 	public: bool save = true;
 
@@ -472,7 +466,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 				  this->client_Column1,
 					  this->client_Column2, this->client_Column3, this->client_Column4
 			  });
-			  this->dataGridView_clients->Location = System::Drawing::Point(397, 148);
+			  this->dataGridView_clients->Location = System::Drawing::Point(90, 158);
 			  this->dataGridView_clients->Name = L"dataGridView_clients";
 			  this->dataGridView_clients->ReadOnly = true;
 			  this->dataGridView_clients->RowHeadersWidth = 60;
@@ -524,7 +518,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 				  this->supplier_Column1,
 					  this->supplier_Column2, this->supplier_Column3, this->supplier_Column4
 			  });
-			  this->dataGridView_supplier->Location = System::Drawing::Point(277, 239);
+			  this->dataGridView_supplier->Location = System::Drawing::Point(114, 167);
 			  this->dataGridView_supplier->Name = L"dataGridView_supplier";
 			  this->dataGridView_supplier->ReadOnly = true;
 			  this->dataGridView_supplier->RowHeadersWidth = 60;
@@ -576,7 +570,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 				  this->product_Column1,
 					  this->product_Column2, this->product_Column3, this->product_Column4, this->product_Column5
 			  });
-			  this->dataGridView_product->Location = System::Drawing::Point(346, 252);
+			  this->dataGridView_product->Location = System::Drawing::Point(90, 158);
 			  this->dataGridView_product->Name = L"dataGridView_product";
 			  this->dataGridView_product->ReadOnly = true;
 			  this->dataGridView_product->RowHeadersWidth = 60;
@@ -636,7 +630,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 				  this->service_Column1,
 					  this->service_Column2, this->service_Column3, this->service_Column4
 			  });
-			  this->dataGridView_service->Location = System::Drawing::Point(562, 165);
+			  this->dataGridView_service->Location = System::Drawing::Point(471, 158);
 			  this->dataGridView_service->Name = L"dataGridView_service";
 			  this->dataGridView_service->ReadOnly = true;
 			  this->dataGridView_service->RowHeadersWidth = 60;
@@ -683,7 +677,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->label_database_clients->AutoSize = true;
 			  this->label_database_clients->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
 				  System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			  this->label_database_clients->Location = System::Drawing::Point(785, 84);
+			  this->label_database_clients->Location = System::Drawing::Point(564, 103);
 			  this->label_database_clients->Name = L"label_database_clients";
 			  this->label_database_clients->Size = System::Drawing::Size(447, 61);
 			  this->label_database_clients->TabIndex = 5;
@@ -696,7 +690,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->label_database_suppliers->AutoSize = true;
 			  this->label_database_suppliers->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
 				  System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			  this->label_database_suppliers->Location = System::Drawing::Point(750, 84);
+			  this->label_database_suppliers->Location = System::Drawing::Point(535, 94);
 			  this->label_database_suppliers->Name = L"label_database_suppliers";
 			  this->label_database_suppliers->Size = System::Drawing::Size(544, 61);
 			  this->label_database_suppliers->TabIndex = 6;
@@ -709,7 +703,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->label_database_products->AutoSize = true;
 			  this->label_database_products->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
 				  System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			  this->label_database_products->Location = System::Drawing::Point(825, 84);
+			  this->label_database_products->Location = System::Drawing::Point(589, 94);
 			  this->label_database_products->Name = L"label_database_products";
 			  this->label_database_products->Size = System::Drawing::Size(417, 61);
 			  this->label_database_products->TabIndex = 7;
@@ -722,7 +716,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->label_database_services->AutoSize = true;
 			  this->label_database_services->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
 				  System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			  this->label_database_services->Location = System::Drawing::Point(863, 84);
+			  this->label_database_services->Location = System::Drawing::Point(600, 94);
 			  this->label_database_services->Name = L"label_database_services";
 			  this->label_database_services->Size = System::Drawing::Size(352, 61);
 			  this->label_database_services->TabIndex = 8;
@@ -735,7 +729,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->label_database_order->AutoSize = true;
 			  this->label_database_order->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
 				  System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			  this->label_database_order->Location = System::Drawing::Point(834, 84);
+			  this->label_database_order->Location = System::Drawing::Point(564, 94);
 			  this->label_database_order->Name = L"label_database_order";
 			  this->label_database_order->Size = System::Drawing::Size(417, 61);
 			  this->label_database_order->TabIndex = 9;
@@ -753,12 +747,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 				  this->order_Column1,
 					  this->order_Column2, this->order_Column3
 			  });
-			  this->dataGridView_order->Location = System::Drawing::Point(596, 335);
+			  this->dataGridView_order->Location = System::Drawing::Point(74, 158);
 			  this->dataGridView_order->Name = L"dataGridView_order";
 			  this->dataGridView_order->ReadOnly = true;
 			  this->dataGridView_order->RowHeadersWidth = 60;
 			  this->dataGridView_order->RowTemplate->Height = 33;
-			  this->dataGridView_order->Size = System::Drawing::Size(1244, 442);
+			  this->dataGridView_order->Size = System::Drawing::Size(1341, 442);
 			  this->dataGridView_order->TabIndex = 10;
 			  this->dataGridView_order->Visible = false;
 			  // 
@@ -776,7 +770,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->order_Column2->MinimumWidth = 10;
 			  this->order_Column2->Name = L"order_Column2";
 			  this->order_Column2->ReadOnly = true;
-			  this->order_Column2->Width = 800;
+			  this->order_Column2->Width = 900;
 			  // 
 			  // order_Column3
 			  // 
@@ -791,7 +785,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->AutoScaleDimensions = System::Drawing::SizeF(22, 42);
 			  this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			  this->BackColor = System::Drawing::SystemColors::Info;
-			  this->ClientSize = System::Drawing::Size(2174, 763);
+			  this->ClientSize = System::Drawing::Size(1593, 782);
 			  this->Controls->Add(this->dataGridView_order);
 			  this->Controls->Add(this->label_database_order);
 			  this->Controls->Add(this->label_database_services);
@@ -886,6 +880,25 @@ private: System::Void database_Load(System::Object^ sender, System::EventArgs^ e
 	//Проверка существования файла с заказами
 	if (IO::File::Exists("orderhistory.txt")) {
 		StreamReader^ str = gcnew StreamReader("orderhistory.txt");
+		String^ string;
+		int i = 0;
+		/*Пока не конец файла*/
+		while (str->Peek() >= 0) {
+			/*Добавление строки в таблицу*/
+			dataGridView_order->Rows->Add();
+			string = str->ReadLine();
+			/*Создание массива строк*/
+			cli::array<String^>^ newstr1;
+			newstr1 = string->Split('&');
+			/*Нумерация строк в таблице с 1*/
+			dataGridView_order->Rows[i]->Cells[0]->Value = i + 1;
+			for (int j = 0; j < 2; j++)
+			{
+				dataGridView_order->Rows[i]->Cells[j + 1]->Value = newstr1[j];
+			}
+			i++;
+		}
+		str->Close();
 	}
 	else {
 		/*Создаем новый файл, если файл не создан*/
@@ -936,7 +949,7 @@ private: System::Void database_Load(System::Object^ sender, System::EventArgs^ e
 			newstr1 = string->Split('&');
 			/*Нумерация строк в таблице с 1*/
 			dataGridView_product->Rows[i]->Cells[0]->Value = i + 1;
-			for (int j = 0; j < 3; j++)
+			for (int j = 0; j < 4; j++)
 			{
 				dataGridView_product->Rows[i]->Cells[j + 1]->Value = newstr1[j];
 			}
@@ -1014,7 +1027,7 @@ private: System::Void ToolStripMenuItem_safe_Click(System::Object^ sender, Syste
 		order->WriteLine();
 	}
 	order->Close();
-
+	save = true;
 	MessageBox::Show("Данные сохранены!", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
 }
 
@@ -1281,17 +1294,14 @@ private: System::Void ToolStripMenuItem_make_order_Click(System::Object^ sender,
 			add->SetValues_comboBox_product(vals, max_count, price);
 			add->SetValues_comboBox_service(val, price_service);
 			add->ShowDialog();
-			if (add->orderadding != gcnew List<String^>() && add->result_price != 0) {
+			if (add->combinedString != String::Empty && add->result_price != 0) {
 				/*Добавление строки в таблицу*/
 				dataGridView_order->Rows->Add();
-				/*Создание массива строк*/
-				List<String^>^ newstr2;
-				newstr2 = add->orderadding;
 				int count;
 				count = dataGridView_order->RowCount - 1;
 				/*Нумерация строк с единицы*/
 				dataGridView_order->Rows[count]->Cells[0]->Value = count + 1;
-				dataGridView_order->Rows[count]->Cells[1]->Value = newstr2;
+				dataGridView_order->Rows[count]->Cells[1]->Value = add->combinedString;
 				dataGridView_order->Rows[count]->Cells[2]->Value = add->result_price;
 				/*Так как данные были изменены, то меняем переменную save*/
 				save = false;

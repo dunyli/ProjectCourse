@@ -10,6 +10,7 @@ namespace ProjectCourse {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
+	using namespace System::Text::RegularExpressions;
 
 	/// <summary>
 	/// Сводка для addclient
@@ -56,7 +57,8 @@ namespace ProjectCourse {
 	}
 	private: System::Windows::Forms::TextBox^ textBox_addorder_count;
 	private: System::Windows::Forms::ComboBox^ comboBox_product;
-		   /*Строка для добавления*/
+	/*Строка для добавления*/
+	public: String^ combinedString;
 	public: List<String^>^ orderadding;
 	public: List<int>^ max_product;
 	public: List<int>^ product_price;
@@ -376,7 +378,6 @@ namespace ProjectCourse {
 			this->MinimumSize = System::Drawing::Size(1969, 993);
 			this->Name = L"addorder";
 			this->Text = L"Создание заказа";
-			this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
 			this->Load += gcnew System::EventHandler(this, &addorder::addorder_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -392,12 +393,14 @@ namespace ProjectCourse {
 			this->Close();
 			// Присваиваем пустой список строк
 			orderadding = gcnew List<String^>();
+			combinedString = String::Empty;
 		}
 	}
 
 	private: System::Void addorder_Load(System::Object^ sender, System::EventArgs^ e) {
 		textBox_addorder_order->Text = "";
 		orderadding = gcnew List<String^>();
+		combinedString = String::Empty;
 		result_price = 0;
 	}
 
@@ -413,12 +416,27 @@ namespace ProjectCourse {
 			MessageBox::Show("Для сохранения заказа, добавьте товар или услугу!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			return;
 		}
-		/*Добавление в список строк всех данных заполненных, в форме*/
-		// Разделяем текст на строки и добавляем в список
-		array<String^>^ lines = textBox_addorder_order->Text->Split('\n');
-		for each (String^ line in lines) {
-			orderadding->Add(line);
+
+		// Получаем текст из TextBox
+		String^ textBoxContent = textBox_addorder_order->Text;
+
+		// Используем регулярное выражение для разделения по символам новой строки
+		array<String^>^ lines = Regex::Split(textBoxContent, "\r\n|\n|\r");
+
+		int j = 1;
+		// Проходим по строкам и добавляем только нечетные
+		for (int i = 0; i < lines->Length - 1; i++) {
+			if (i % 2 == 0) { // Нечетные строки имеют четные индексы (0, 2, 4...)
+				combinedString += j + ". " + lines[i] + "  "; // Объединяем с новой строкой
+				j++;
+			}
 		}
+
+		// Убираем последний переход на новую строку, если это необходимо
+		if (combinedString->Length > 0) {
+			combinedString = combinedString->TrimEnd('\r', '\n', '\r\n');
+		}
+
 		MessageBox::Show("Заказ сохранен успешно!", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		this->Close();
 	}
@@ -509,13 +527,14 @@ namespace ProjectCourse {
 		}
 		String^ text = comboBox_product->Text;
 		if (text->Length > 3) {
-			String^ modifiedText = text->Substring(3); // Удаляем первые 3 символа
+			text = text->Substring(3); // Удаляем первые 3 символа
 		}
 		else MessageBox::Show("Некорректный выбор товара!", "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		String^ product_order = text + ", количество: " + textBox_addorder_count->Text;
 		int counter = Convert::ToInt32(textBox_addorder_count->Text) * product_price[number];
 		textBox_addorder_order->AppendText(product_order + Environment::NewLine);
 		textBox_addorder_order->AppendText("Стоимость: " + counter.ToString());
+		textBox_addorder_order->AppendText(Environment::NewLine);
 		result_price += counter;
 		textBox_addorder_price->Text = "Итоговая стоимость заказа: " + result_price;
 		max_product[number] = max_product[number] - Convert::ToInt32(textBox_addorder_count->Text);
