@@ -184,6 +184,9 @@
     <EmbeddedResource Include="database.resx">
       <DependentUpon>database.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="editclient.resx">
+      <DependentUpon>editclient.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="info.resx">
       <DependentUpon>info.h</DependentUpon>
     </EmbeddedResource>
