@@ -48,6 +48,9 @@
     <ClCompile Include="editclient.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="editsupplier.cpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="login.h">
@@ -81,6 +84,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="editclient.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="editsupplier.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

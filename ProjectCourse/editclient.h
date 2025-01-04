@@ -100,7 +100,7 @@ namespace ProjectCourse {
 			this->label_editclient_head->AutoSize = true;
 			this->label_editclient_head->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->label_editclient_head->Location = System::Drawing::Point(252, 40);
+			this->label_editclient_head->Location = System::Drawing::Point(285, 52);
 			this->label_editclient_head->Name = L"label_editclient_head";
 			this->label_editclient_head->Size = System::Drawing::Size(1494, 61);
 			this->label_editclient_head->TabIndex = 0;

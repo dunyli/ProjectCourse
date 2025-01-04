@@ -264,7 +264,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->menuStrip->MinimumSize = System::Drawing::Size(2000, 0);
 			  this->menuStrip->Name = L"menuStrip";
 			  this->menuStrip->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			  this->menuStrip->Size = System::Drawing::Size(2190, 53);
+			  this->menuStrip->Size = System::Drawing::Size(2430, 53);
 			  this->menuStrip->TabIndex = 0;
 			  this->menuStrip->Text = L"Меню";
 			  // 
@@ -423,6 +423,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->ToolStripMenuItem_edit_supplier->Name = L"ToolStripMenuItem_edit_supplier";
 			  this->ToolStripMenuItem_edit_supplier->Size = System::Drawing::Size(580, 54);
 			  this->ToolStripMenuItem_edit_supplier->Text = L"Редактировать поставщиков";
+			  this->ToolStripMenuItem_edit_supplier->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_edit_supplier_Click);
 			  // 
 			  // ToolStripMenuItem_edit_client
 			  // 
@@ -1370,6 +1371,11 @@ private: System::Void ToolStripMenuItem_edit_client_Click(System::Object^ sender
 		}
 	}
 	else MessageBox::Show("Перед редактированием добавьте клиента!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+}
+
+//Редактирование данных поставщиков
+private: System::Void ToolStripMenuItem_edit_supplier_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }
