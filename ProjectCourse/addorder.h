@@ -59,7 +59,7 @@ namespace ProjectCourse {
 	private: System::Windows::Forms::ComboBox^ comboBox_product;
 	/*Строка для добавления*/
 	public: String^ combinedString;
-	public: List<String^>^ orderadding;
+	public: String^ orderadding;
 	public: List<int>^ max_product;
 	public: List<int>^ product_price;
 	public: List<int>^ service_price;
@@ -392,14 +392,14 @@ namespace ProjectCourse {
 		else {
 			this->Close();
 			// Присваиваем пустой список строк
-			orderadding = gcnew List<String^>();
+			orderadding = String::Empty;
 			combinedString = String::Empty;
 		}
 	}
 
 	private: System::Void addorder_Load(System::Object^ sender, System::EventArgs^ e) {
 		textBox_addorder_order->Text = "";
-		orderadding = gcnew List<String^>();
+		orderadding = String::Empty;
 		combinedString = String::Empty;
 		result_price = 0;
 	}

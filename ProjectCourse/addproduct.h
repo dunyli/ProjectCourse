@@ -36,6 +36,7 @@ namespace ProjectCourse {
 
 		/*Строка для добавления*/
 	public: String^ productadding;
+
 	protected:
 		/// <summary>
 		/// Освободить все используемые ресурсы.
@@ -90,11 +91,11 @@ namespace ProjectCourse {
 			this->label_addproduct_head->AutoSize = true;
 			this->label_addproduct_head->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.875F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->label_addproduct_head->Location = System::Drawing::Point(223, 44);
+			this->label_addproduct_head->Location = System::Drawing::Point(150, 51);
 			this->label_addproduct_head->Name = L"label_addproduct_head";
-			this->label_addproduct_head->Size = System::Drawing::Size(1330, 61);
+			this->label_addproduct_head->Size = System::Drawing::Size(1508, 61);
 			this->label_addproduct_head->TabIndex = 0;
-			this->label_addproduct_head->Text = L"Для добавления товара, заполните все данные поля";
+			this->label_addproduct_head->Text = L"Для добавления нового товара, заполните все данные поля";
 			// 
 			// label_addproduct_name
 			// 
@@ -106,14 +107,14 @@ namespace ProjectCourse {
 			this->label_addproduct_name->Name = L"label_addproduct_name";
 			this->label_addproduct_name->Size = System::Drawing::Size(622, 126);
 			this->label_addproduct_name->TabIndex = 1;
-			this->label_addproduct_name->Text = L"Введите название товара:\r\nОбразец: корм для собак Pedigree\r\n\r\n";
+			this->label_addproduct_name->Text = L"Введите название нового товара:\r\nОбразец: корм для собак Pedigree\r\n\r\n";
 			// 
 			// textBox_addproduct_name
 			// 
 			this->textBox_addproduct_name->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->textBox_addproduct_name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->textBox_addproduct_name->Location = System::Drawing::Point(32, 274);
+			this->textBox_addproduct_name->Location = System::Drawing::Point(32, 273);
 			this->textBox_addproduct_name->Name = L"textBox_addproduct_name";
 			this->textBox_addproduct_name->Size = System::Drawing::Size(733, 56);
 			this->textBox_addproduct_name->TabIndex = 2;
@@ -124,7 +125,7 @@ namespace ProjectCourse {
 			this->label_addproduct_price->AutoSize = true;
 			this->label_addproduct_price->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->label_addproduct_price->Location = System::Drawing::Point(982, 165);
+			this->label_addproduct_price->Location = System::Drawing::Point(991, 165);
 			this->label_addproduct_price->Name = L"label_addproduct_price";
 			this->label_addproduct_price->Size = System::Drawing::Size(560, 84);
 			this->label_addproduct_price->TabIndex = 3;
@@ -135,7 +136,7 @@ namespace ProjectCourse {
 			this->textBox_addproduct_price->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->textBox_addproduct_price->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->textBox_addproduct_price->Location = System::Drawing::Point(989, 274);
+			this->textBox_addproduct_price->Location = System::Drawing::Point(989, 273);
 			this->textBox_addproduct_price->Name = L"textBox_addproduct_price";
 			this->textBox_addproduct_price->Size = System::Drawing::Size(553, 56);
 			this->textBox_addproduct_price->TabIndex = 4;
