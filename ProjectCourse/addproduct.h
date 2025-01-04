@@ -214,7 +214,7 @@ namespace ProjectCourse {
 			this->comboBox_supplier->FormattingEnabled = true;
 			this->comboBox_supplier->Location = System::Drawing::Point(32, 469);
 			this->comboBox_supplier->Name = L"comboBox_supplier";
-			this->comboBox_supplier->Size = System::Drawing::Size(535, 59);
+			this->comboBox_supplier->Size = System::Drawing::Size(671, 59);
 			this->comboBox_supplier->TabIndex = 11;
 			// 
 			// addproduct

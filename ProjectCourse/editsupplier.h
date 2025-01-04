@@ -271,7 +271,7 @@ namespace ProjectCourse {
 			this->MinimumSize = System::Drawing::Size(1969, 993);
 			this->Name = L"editsupplier";
 			this->Text = L"Редактирование поставщиков";
-			this->Load += gcnew System::EventHandler(this, &editsupplier::editclient_Load);
+			this->Load += gcnew System::EventHandler(this, &editsupplier::editsupplier_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -290,7 +290,7 @@ namespace ProjectCourse {
 		edit_supplier = String::Empty;
 	}
 
-	private: System::Void editclient_Load(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void editsupplier_Load(System::Object^ sender, System::EventArgs^ e) {
 		edit_supplier = String::Empty;
 		supplier_delete = 0;
 		number_edit_supplier = 0;
@@ -330,7 +330,7 @@ namespace ProjectCourse {
 		if (((e->KeyChar >= '0') && (e->KeyChar <= '9')) || e->KeyChar == 8) return;
 		e->Handled = true; // Остальные символы запрещены для ввода
 	}
-		   //Удаление клиента
+		   //Удаление поставщика
 	private: System::Void button_editsupplier_delete_Click(System::Object^ sender, System::EventArgs^ e) {
 		/*Проверки на правильность введенных данных в текстбокс*/
 		if (comboBox_editsupplier_name->Text == String::Empty) {
