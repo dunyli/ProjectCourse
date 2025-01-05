@@ -236,6 +236,9 @@
     <EmbeddedResource Include="searchclient.resx">
       <DependentUpon>searchclient.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="searchservice.resx">
+      <DependentUpon>searchservice.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="searchsupplier.resx">
       <DependentUpon>searchsupplier.h</DependentUpon>
     </EmbeddedResource>

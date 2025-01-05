@@ -12,6 +12,7 @@
 #include "editorder.h"
 #include "searchclient.h"
 #include "searchsupplier.h"
+#include "searchservice.h"
 
 namespace ProjectCourse {
 
@@ -266,6 +267,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->ToolStripMenuItem_search_service->Name = L"ToolStripMenuItem_search_service";
 			  this->ToolStripMenuItem_search_service->Size = System::Drawing::Size(435, 54);
 			  this->ToolStripMenuItem_search_service->Text = L"Поиск услуги";
+			  this->ToolStripMenuItem_search_service->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_search_service_Click);
 			  // 
 			  // ToolStripMenuItem_add_data
 			  // 
@@ -601,7 +603,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 				  this->service_Column1,
 					  this->service_Column2, this->service_Column3, this->service_Column4
 			  });
-			  this->dataGridView_service->Location = System::Drawing::Point(294, 264);
+			  this->dataGridView_service->Location = System::Drawing::Point(264, 264);
 			  this->dataGridView_service->Name = L"dataGridView_service";
 			  this->dataGridView_service->ReadOnly = true;
 			  this->dataGridView_service->RowHeadersWidth = 60;
@@ -1567,6 +1569,28 @@ private: System::Void ToolStripMenuItem_search_suppplier_Click(System::Object^ s
 		}
 	}
 	else MessageBox::Show("Перед поиском добавьте поставщиков!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+}
+//Поиск услуги
+private: System::Void ToolStripMenuItem_search_service_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (dataGridView_service->RowCount > 0) {
+		if (save != false) {
+			searchservice^ search_service = gcnew searchservice();
+			search_service->ShowDialog();
+		}
+		else {
+			System::Windows::Forms::DialogResult what = MessageBox::Show("Измененные данные не были сохранены. \nНажмите \"да\", если хотите работать с измененными данными.\nНажмите\"нет\, если хотите работать со старыми данными", "Предупреждение", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
+			if (what == System::Windows::Forms::DialogResult::Yes) {
+				ToolStripMenuItem_safe_Click(sender, e);
+				searchservice^ search_service = gcnew searchservice();
+				search_service->ShowDialog();
+			}
+			else {
+				searchservice^ search_service = gcnew searchservice();
+				search_service->ShowDialog();
+			}
+		}
+	}
+	else MessageBox::Show("Перед поиском добавьте услугу!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 }
 };
 }
