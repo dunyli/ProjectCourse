@@ -38,14 +38,6 @@ namespace ProjectCourse {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ client_Column4;
-
-
-
-
-
-
-	public: 
-	/*Строка для добавления*/
 	public: bool prov = false;
 	protected:
 		/// <summary>

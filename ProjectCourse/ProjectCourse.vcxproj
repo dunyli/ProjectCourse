@@ -232,6 +232,9 @@
     <EmbeddedResource Include="searchclient.resx">
       <DependentUpon>searchclient.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="searchsupplier.resx">
+      <DependentUpon>searchsupplier.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
