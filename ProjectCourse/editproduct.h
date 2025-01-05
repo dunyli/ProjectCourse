@@ -26,10 +26,6 @@ namespace ProjectCourse {
 		}
 	private: System::Windows::Forms::ComboBox^ comboBox_editproduct_name;
 	private: System::Windows::Forms::Button^ button_editproduct_delete;
-	public:
-
-
-	public:
 	private: System::Windows::Forms::Label^ label_editproduct_name;
 	private: System::Windows::Forms::Label^ label_editproduct_edname;
 	private: System::Windows::Forms::Label^ label_editproduct_price;
@@ -410,7 +406,7 @@ namespace ProjectCourse {
 			selectStr += currentChar;
 		}
 		int num = Convert::ToInt32(selectStr) - 1;
-		comboBox_editproduct_supplier->SelectedIndex = num;
+		if (num < supplier_product->Count) comboBox_editproduct_supplier->SelectedIndex = num;
 	}
 
 	private: System::Void textBox_editproduct_price_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {

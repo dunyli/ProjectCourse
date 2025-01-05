@@ -314,12 +314,6 @@ namespace ProjectCourse {
 		MessageBox::Show("Клиент изменен успешно!", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		this->Close();
 	}
-
-	private: System::Void textBox_addorder_count_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-		/*Если вводятся цифры от 0 до 9 или символ Backspase (код = 8) то далее*/
-		if (((e->KeyChar >= '0') && (e->KeyChar <= '9')) || e->KeyChar == 8) return;
-		e->Handled = true; // Остальные символы запрещены для ввода
-	}
 	//Удаление клиента
 	private: System::Void button_editclient_delete_Click(System::Object^ sender, System::EventArgs^ e) {
 		/*Проверки на правильность введенных данных в текстбокс*/

@@ -202,6 +202,9 @@
     <EmbeddedResource Include="editproduct.resx">
       <DependentUpon>editproduct.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="editservice.resx">
+      <DependentUpon>editservice.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editsupplier.resx">
       <DependentUpon>editsupplier.h</DependentUpon>
     </EmbeddedResource>

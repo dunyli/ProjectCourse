@@ -8,6 +8,7 @@
 #include "editclient.h"
 #include "editsupplier.h"
 #include "editproduct.h"
+#include "editservice.h"
 
 namespace ProjectCourse {
 
@@ -211,7 +212,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->menuStrip->MinimumSize = System::Drawing::Size(2000, 0);
 			  this->menuStrip->Name = L"menuStrip";
 			  this->menuStrip->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			  this->menuStrip->Size = System::Drawing::Size(2190, 53);
+			  this->menuStrip->Size = System::Drawing::Size(2430, 53);
 			  this->menuStrip->TabIndex = 0;
 			  this->menuStrip->Text = L"Меню";
 			  // 
@@ -391,6 +392,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->ToolStripMenuItem_edit_service->Name = L"ToolStripMenuItem_edit_service";
 			  this->ToolStripMenuItem_edit_service->Size = System::Drawing::Size(580, 54);
 			  this->ToolStripMenuItem_edit_service->Text = L"Редактировать услуги";
+			  this->ToolStripMenuItem_edit_service->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_edit_service_Click);
 			  // 
 			  // ToolStripMenuItem_info
 			  // 
@@ -1423,6 +1425,51 @@ private: System::Void ToolStripMenuItem_edit_product_Click(System::Object^ sende
 		}
 	}
 	else MessageBox::Show("Перед редактированием добавьте поставщика!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+}
+//Редактирование данных услуг
+private: System::Void ToolStripMenuItem_edit_service_Click(System::Object^ sender, System::EventArgs^ e) {
+	editservice^ edservice = gcnew editservice();
+	// Получаем значения из первых двух столбцов DataGridView
+	List<String^>^ type_list = gcnew List<String^>(); // Использование List из System::Collections::Generic
+	List<int>^ price_list = gcnew List<int>();
+	List<String^>^ values = gcnew List<String^>();
+	for each (DataGridViewRow ^ row in dataGridView_service->Rows)
+	{
+		if (row->Cells[0]->Value != nullptr && row->Cells[1]->Value != nullptr)
+		{
+			// Склеиваем значения из первых двух столбцов
+			String^ concatenatedValue = row->Cells[0]->Value->ToString() + ". " + row->Cells[1]->Value->ToString();
+			values->Add(concatenatedValue); // Добавляем склеенные строки в список
+			type_list->Add(row->Cells[2]->Value->ToString());
+			price_list->Add(Convert::ToInt32(row->Cells[3]->Value));
+		}
+	}
+	// Проверка на пустоту списков
+	if (values->Count > 0) // Если список не пустой
+	{
+		edservice->SetValues_comboBox_servicename(values, type_list, price_list);
+		edservice->ShowDialog();
+		/*Удаление строки*/
+		if (edservice->service_delete != 0) {
+			dataGridView_service->Rows->RemoveAt(edservice->service_delete - 1);
+			for (int i = 0; i < dataGridView_service->Rows->Count; i++) {
+				dataGridView_service->Rows[i]->Cells[0]->Value = i + 1;
+			}
+			save = false;
+		}
+		else if (edservice->edit_service != String::Empty && edservice->number_edit_service != 0) {
+			/*Создание массива строк*/
+			cli::array<String^>^ newstr2;
+			newstr2 = edservice->edit_service->Split('&');
+			for (int i = 1; i < 4; i++)
+			{
+				dataGridView_service->Rows[edservice->number_edit_service - 1]->Cells[i]->Value = newstr2[i - 1];
+			}
+			/*Так как данные были изменены, то меняем переменную save*/
+			save = false;
+		}
+	}
+	else MessageBox::Show("Перед редактированием добавьте услугу!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 }
 };
 }
