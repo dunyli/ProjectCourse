@@ -134,6 +134,7 @@
     <ClCompile Include="login.cpp" />
     <ClCompile Include="password.cpp" />
     <ClCompile Include="searchclient.cpp" />
+    <ClCompile Include="searchproduct.cpp" />
     <ClCompile Include="searchservice.cpp" />
     <ClCompile Include="searchsupplier.cpp" />
   </ItemGroup>
@@ -184,6 +185,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="searchclient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="searchproduct.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="searchservice.h">
