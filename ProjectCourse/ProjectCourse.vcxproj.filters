@@ -60,6 +60,9 @@
     <ClCompile Include="editorder.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="searchclient.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="login.h">
@@ -105,6 +108,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="editorder.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="searchclient.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

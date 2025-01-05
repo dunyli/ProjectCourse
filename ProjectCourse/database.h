@@ -218,7 +218,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->menuStrip->MinimumSize = System::Drawing::Size(2000, 0);
 			  this->menuStrip->Name = L"menuStrip";
 			  this->menuStrip->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			  this->menuStrip->Size = System::Drawing::Size(2190, 53);
+			  this->menuStrip->Size = System::Drawing::Size(2430, 53);
 			  this->menuStrip->TabIndex = 0;
 			  this->menuStrip->Text = L"Меню";
 			  // 
@@ -244,6 +244,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->ToolStripMenuItem_search_client->Name = L"ToolStripMenuItem_search_client";
 			  this->ToolStripMenuItem_search_client->Size = System::Drawing::Size(435, 54);
 			  this->ToolStripMenuItem_search_client->Text = L"Поиск клиента";
+			  this->ToolStripMenuItem_search_client->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_search_client_Click);
 			  // 
 			  // ToolStripMenuItem_search_suppplier
 			  // 
@@ -1487,6 +1488,7 @@ private: System::Void ToolStripMenuItem_edit_service_Click(System::Object^ sende
 	}
 	else MessageBox::Show("Перед редактированием добавьте услугу!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 }
+
 //Редактирование заказа
 private: System::Void ToolStripMenuItem_edit_order_Click(System::Object^ sender, System::EventArgs^ e) {
 	editorder^ edorder = gcnew editorder();
@@ -1518,6 +1520,9 @@ private: System::Void ToolStripMenuItem_edit_order_Click(System::Object^ sender,
 		}
 	}
 	else MessageBox::Show("Перед редактированием добавьте заказ!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+}
+//Поиск клиента
+private: System::Void ToolStripMenuItem_search_client_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
