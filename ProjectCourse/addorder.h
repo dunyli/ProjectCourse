@@ -437,6 +437,8 @@ namespace ProjectCourse {
 			combinedString = combinedString->TrimEnd('\r', '\n', '\r\n');
 		}
 
+		orderadding = comboBox_client->Text;
+
 		MessageBox::Show("Заказ сохранен успешно!", "Успешно", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		this->Close();
 	}

@@ -9,6 +9,7 @@
 #include "editsupplier.h"
 #include "editproduct.h"
 #include "editservice.h"
+#include "editorder.h"
 
 namespace ProjectCourse {
 
@@ -115,9 +116,13 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column2;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column3;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column4;
 private: System::Windows::Forms::DataGridView^ dataGridView_order;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column1;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column2;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column4;
+
+
+
 
 	/*Логическая переменная для проверки изменения данных*/
 	public: bool save = true;
@@ -187,6 +192,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->order_Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			  this->order_Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			  this->order_Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			  this->order_Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			  this->menuStrip->SuspendLayout();
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_clients))->BeginInit();
 			  (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_supplier))->BeginInit();
@@ -212,7 +218,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->menuStrip->MinimumSize = System::Drawing::Size(2000, 0);
 			  this->menuStrip->Name = L"menuStrip";
 			  this->menuStrip->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			  this->menuStrip->Size = System::Drawing::Size(2430, 53);
+			  this->menuStrip->Size = System::Drawing::Size(2190, 53);
 			  this->menuStrip->TabIndex = 0;
 			  this->menuStrip->Text = L"Меню";
 			  // 
@@ -386,6 +392,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->ToolStripMenuItem_edit_order->Name = L"ToolStripMenuItem_edit_order";
 			  this->ToolStripMenuItem_edit_order->Size = System::Drawing::Size(580, 54);
 			  this->ToolStripMenuItem_edit_order->Text = L"Редактировать заказы";
+			  this->ToolStripMenuItem_edit_order->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_edit_order_Click);
 			  // 
 			  // ToolStripMenuItem_edit_service
 			  // 
@@ -703,16 +710,16 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  this->dataGridView_order->AllowUserToOrderColumns = true;
 			  this->dataGridView_order->Anchor = System::Windows::Forms::AnchorStyles::None;
 			  this->dataGridView_order->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			  this->dataGridView_order->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+			  this->dataGridView_order->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				  this->order_Column1,
-					  this->order_Column2, this->order_Column3
+					  this->order_Column2, this->order_Column3, this->order_Column4
 			  });
-			  this->dataGridView_order->Location = System::Drawing::Point(200, 381);
+			  this->dataGridView_order->Location = System::Drawing::Point(142, 264);
 			  this->dataGridView_order->Name = L"dataGridView_order";
 			  this->dataGridView_order->ReadOnly = true;
 			  this->dataGridView_order->RowHeadersWidth = 60;
 			  this->dataGridView_order->RowTemplate->Height = 33;
-			  this->dataGridView_order->Size = System::Drawing::Size(1341, 442);
+			  this->dataGridView_order->Size = System::Drawing::Size(1342, 442);
 			  this->dataGridView_order->TabIndex = 10;
 			  this->dataGridView_order->Visible = false;
 			  // 
@@ -726,19 +733,27 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 			  // 
 			  // order_Column2
 			  // 
-			  this->order_Column2->HeaderText = L"Данные заказа";
+			  this->order_Column2->HeaderText = L"Номер клиента";
 			  this->order_Column2->MinimumWidth = 10;
 			  this->order_Column2->Name = L"order_Column2";
 			  this->order_Column2->ReadOnly = true;
-			  this->order_Column2->Width = 900;
+			  this->order_Column2->Width = 200;
 			  // 
 			  // order_Column3
 			  // 
-			  this->order_Column3->HeaderText = L"Итоговая стоимость";
+			  this->order_Column3->HeaderText = L"Данные заказа";
 			  this->order_Column3->MinimumWidth = 10;
 			  this->order_Column3->Name = L"order_Column3";
 			  this->order_Column3->ReadOnly = true;
-			  this->order_Column3->Width = 200;
+			  this->order_Column3->Width = 700;
+			  // 
+			  // order_Column4
+			  // 
+			  this->order_Column4->HeaderText = L"Итоговая стоимость";
+			  this->order_Column4->MinimumWidth = 10;
+			  this->order_Column4->Name = L"order_Column4";
+			  this->order_Column4->ReadOnly = true;
+			  this->order_Column4->Width = 200;
 			  // 
 			  // database
 			  // 
@@ -852,7 +867,7 @@ private: System::Void database_Load(System::Object^ sender, System::EventArgs^ e
 			newstr1 = string->Split('&');
 			/*Нумерация строк в таблице с 1*/
 			dataGridView_order->Rows[i]->Cells[0]->Value = i + 1;
-			for (int j = 0; j < 2; j++)
+			for (int j = 0; j < 3; j++)
 			{
 				dataGridView_order->Rows[i]->Cells[j + 1]->Value = newstr1[j];
 			}
@@ -981,7 +996,7 @@ private: System::Void ToolStripMenuItem_safe_Click(System::Object^ sender, Syste
 	/*открываем файл для записи списка заказов*/
 	StreamWriter^ order = gcnew StreamWriter("orderhistory.txt");
 	for (int i = 0; i < dataGridView_order->RowCount; i++) {
-		for (int j = 1; j < 3; j++) {
+		for (int j = 1; j < 4; j++) {
 			order->Write(dataGridView_order->Rows[i]->Cells[j]->Value + "&");
 		}
 		order->WriteLine();
@@ -1261,8 +1276,9 @@ private: System::Void ToolStripMenuItem_make_order_Click(System::Object^ sender,
 				count = dataGridView_order->RowCount - 1;
 				/*Нумерация строк с единицы*/
 				dataGridView_order->Rows[count]->Cells[0]->Value = count + 1;
-				dataGridView_order->Rows[count]->Cells[1]->Value = add->combinedString;
-				dataGridView_order->Rows[count]->Cells[2]->Value = add->result_price;
+				dataGridView_order->Rows[count]->Cells[1]->Value = add->orderadding;
+				dataGridView_order->Rows[count]->Cells[2]->Value = add->combinedString;
+				dataGridView_order->Rows[count]->Cells[3]->Value = add->result_price;
 				/*Так как данные были изменены, то меняем переменную save*/
 				save = false;
 				int j = 0;
@@ -1470,6 +1486,38 @@ private: System::Void ToolStripMenuItem_edit_service_Click(System::Object^ sende
 		}
 	}
 	else MessageBox::Show("Перед редактированием добавьте услугу!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+}
+//Редактирование заказа
+private: System::Void ToolStripMenuItem_edit_order_Click(System::Object^ sender, System::EventArgs^ e) {
+	editorder^ edorder = gcnew editorder();
+	// Получаем значения из первых двух столбцов DataGridView
+	List<int>^ price_list = gcnew List<int>();
+	List<String^>^ values = gcnew List<String^>();
+	for each (DataGridViewRow ^ row in dataGridView_order->Rows)
+	{
+		if (row->Cells[0]->Value != nullptr && row->Cells[1]->Value != nullptr)
+		{
+			// Склеиваем значения
+			String^ concatenatedValue = row->Cells[0]->Value->ToString() + ". " + row->Cells[2]->Value->ToString();
+			values->Add(concatenatedValue); // Добавляем склеенные строки в список
+			price_list->Add(Convert::ToInt32(row->Cells[3]->Value));
+		}
+	}
+	// Проверка на пустоту списков
+	if (values->Count > 0) // Если список не пустой
+	{
+		edorder->SetValues_comboBox_ordername(values);
+		edorder->ShowDialog();
+		/*Удаление строки*/
+		if (edorder->order_delete != 0) {
+			dataGridView_order->Rows->RemoveAt(edorder->order_delete - 1);
+			for (int i = 0; i < dataGridView_order->Rows->Count; i++) {
+				dataGridView_order->Rows[i]->Cells[0]->Value = i + 1;
+			}
+			save = false;
+		}
+	}
+	else MessageBox::Show("Перед редактированием добавьте заказ!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 }
 };
 }

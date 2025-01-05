@@ -126,6 +126,7 @@
     <ClCompile Include="change_pass.cpp" />
     <ClCompile Include="database.cpp" />
     <ClCompile Include="editclient.cpp" />
+    <ClCompile Include="editorder.cpp" />
     <ClCompile Include="editproduct.cpp" />
     <ClCompile Include="editservice.cpp" />
     <ClCompile Include="editsupplier.cpp" />
@@ -156,6 +157,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="editclient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="editorder.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="editproduct.h">
@@ -198,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editclient.resx">
       <DependentUpon>editclient.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editorder.resx">
+      <DependentUpon>editorder.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editproduct.resx">
       <DependentUpon>editproduct.h</DependentUpon>
