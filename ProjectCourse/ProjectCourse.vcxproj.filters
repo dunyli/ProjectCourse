@@ -63,6 +63,9 @@
     <ClCompile Include="searchclient.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="searchsupplier.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="login.h">
@@ -111,6 +114,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="searchclient.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="searchsupplier.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
