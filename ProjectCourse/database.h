@@ -10,6 +10,7 @@
 #include "editproduct.h"
 #include "editservice.h"
 #include "editorder.h"
+#include "searchclient.h"
 
 namespace ProjectCourse {
 
@@ -218,7 +219,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->menuStrip->MinimumSize = System::Drawing::Size(2000, 0);
 			  this->menuStrip->Name = L"menuStrip";
 			  this->menuStrip->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			  this->menuStrip->Size = System::Drawing::Size(2430, 53);
+			  this->menuStrip->Size = System::Drawing::Size(2190, 53);
 			  this->menuStrip->TabIndex = 0;
 			  this->menuStrip->Text = L"Меню";
 			  // 
@@ -486,7 +487,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 				  this->supplier_Column1,
 					  this->supplier_Column2, this->supplier_Column3, this->supplier_Column4
 			  });
-			  this->dataGridView_supplier->Location = System::Drawing::Point(155, 172);
+			  this->dataGridView_supplier->Location = System::Drawing::Point(185, 298);
 			  this->dataGridView_supplier->Name = L"dataGridView_supplier";
 			  this->dataGridView_supplier->ReadOnly = true;
 			  this->dataGridView_supplier->RowHeadersWidth = 60;
@@ -538,7 +539,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 				  this->product_Column1,
 					  this->product_Column2, this->product_Column3, this->product_Column4, this->product_Column5
 			  });
-			  this->dataGridView_product->Location = System::Drawing::Point(142, 172);
+			  this->dataGridView_product->Location = System::Drawing::Point(142, 274);
 			  this->dataGridView_product->Name = L"dataGridView_product";
 			  this->dataGridView_product->ReadOnly = true;
 			  this->dataGridView_product->RowHeadersWidth = 60;
@@ -1523,6 +1524,25 @@ private: System::Void ToolStripMenuItem_edit_order_Click(System::Object^ sender,
 }
 //Поиск клиента
 private: System::Void ToolStripMenuItem_search_client_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (dataGridView_clients->RowCount > 0) {
+		if (save != false) {
+			searchclient^ search_cl = gcnew searchclient();
+			search_cl->ShowDialog();
+		}
+		else {
+			System::Windows::Forms::DialogResult what = MessageBox::Show("Измененные данные не были сохранены. \nНажмите \"да\", если хотите работать с измененными данными.\nНажмите\"нет\, если хотите работать со старыми данными", "Предупреждение", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
+			if (what == System::Windows::Forms::DialogResult::Yes) {
+				ToolStripMenuItem_safe_Click(sender, e);
+				searchclient^ search_cl = gcnew searchclient();
+				search_cl->ShowDialog();
+			}
+			else {
+				searchclient^ search_cl = gcnew searchclient();
+				search_cl->ShowDialog();
+			}
+		}
+	}
+	else MessageBox::Show("Перед поиском добавьте клиентов!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 }
 };
 }

@@ -22,6 +22,8 @@ namespace ProjectCourse {
 			//TODO: добавьте код конструктора
 			//
 		}
+	private: System::Windows::Forms::MaskedTextBox^ maskedTextBox_addclient_phone;
+	public:
 
 		/*Строка для добавления*/
 	public: String^ clientadding;
@@ -43,7 +45,7 @@ namespace ProjectCourse {
 	private: System::Windows::Forms::Label^ label_addclient_address;
 	private: System::Windows::Forms::TextBox^ textBox_addclient_address;
 	private: System::Windows::Forms::Label^ label_addclient_phone;
-	private: System::Windows::Forms::MaskedTextBox^ maskedTextBox_addclient_phone;
+
 	private: System::Windows::Forms::Button^ button_addclient_enter;
 	private: System::Windows::Forms::Button^ button_addclient_exit;
 
@@ -67,9 +69,9 @@ namespace ProjectCourse {
 			this->label_addclient_address = (gcnew System::Windows::Forms::Label());
 			this->textBox_addclient_address = (gcnew System::Windows::Forms::TextBox());
 			this->label_addclient_phone = (gcnew System::Windows::Forms::Label());
-			this->maskedTextBox_addclient_phone = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->button_addclient_enter = (gcnew System::Windows::Forms::Button());
 			this->button_addclient_exit = (gcnew System::Windows::Forms::Button());
+			this->maskedTextBox_addclient_phone = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->SuspendLayout();
 			// 
 			// label_addclient_head
@@ -140,18 +142,6 @@ namespace ProjectCourse {
 			this->label_addclient_phone->TabIndex = 5;
 			this->label_addclient_phone->Text = L"Введите телефон клиента:\r\nОбразец: (987) 654-3210\r\n";
 			// 
-			// maskedTextBox_addclient_phone
-			// 
-			this->maskedTextBox_addclient_phone->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->maskedTextBox_addclient_phone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->maskedTextBox_addclient_phone->Location = System::Drawing::Point(32, 477);
-			this->maskedTextBox_addclient_phone->Mask = L"(999) 000-0000";
-			this->maskedTextBox_addclient_phone->Name = L"maskedTextBox_addclient_phone";
-			this->maskedTextBox_addclient_phone->Size = System::Drawing::Size(482, 56);
-			this->maskedTextBox_addclient_phone->TabIndex = 6;
-			this->maskedTextBox_addclient_phone->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &addclient::maskedTextBox_addclient_phone_KeyPress);
-			// 
 			// button_addclient_enter
 			// 
 			this->button_addclient_enter->Anchor = System::Windows::Forms::AnchorStyles::None;
@@ -179,6 +169,18 @@ namespace ProjectCourse {
 			this->button_addclient_exit->Text = L"Вернуться назад";
 			this->button_addclient_exit->UseVisualStyleBackColor = false;
 			this->button_addclient_exit->Click += gcnew System::EventHandler(this, &addclient::button_addclient_exit_Click);
+			// 
+			// maskedTextBox_addclient_phone
+			// 
+			this->maskedTextBox_addclient_phone->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->maskedTextBox_addclient_phone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->maskedTextBox_addclient_phone->Location = System::Drawing::Point(32, 477);
+			this->maskedTextBox_addclient_phone->Mask = L"(999) 000-0000";
+			this->maskedTextBox_addclient_phone->Name = L"maskedTextBox_addclient_phone";
+			this->maskedTextBox_addclient_phone->Size = System::Drawing::Size(482, 56);
+			this->maskedTextBox_addclient_phone->TabIndex = 6;
+			this->maskedTextBox_addclient_phone->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &addclient::maskedTextBox_addclient_phone_KeyPress);
 			// 
 			// addclient
 			// 
