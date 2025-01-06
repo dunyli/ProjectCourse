@@ -65,8 +65,8 @@ namespace ProjectCourse {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->textBox_searchclient_name = (gcnew System::Windows::Forms::TextBox());
 			this->label_searchclient_head = (gcnew System::Windows::Forms::Label());
 			this->checkBox_searchclient_name = (gcnew System::Windows::Forms::CheckBox());
@@ -90,9 +90,10 @@ namespace ProjectCourse {
 			this->textBox_searchclient_name->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->textBox_searchclient_name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->textBox_searchclient_name->Location = System::Drawing::Point(48, 229);
+			this->textBox_searchclient_name->Location = System::Drawing::Point(31, 106);
+			this->textBox_searchclient_name->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->textBox_searchclient_name->Name = L"textBox_searchclient_name";
-			this->textBox_searchclient_name->Size = System::Drawing::Size(664, 49);
+			this->textBox_searchclient_name->Size = System::Drawing::Size(334, 28);
 			this->textBox_searchclient_name->TabIndex = 2;
 			this->textBox_searchclient_name->Visible = false;
 			// 
@@ -102,10 +103,9 @@ namespace ProjectCourse {
 			this->label_searchclient_head->AutoSize = true;
 			this->label_searchclient_head->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->label_searchclient_head->Location = System::Drawing::Point(180, 29);
-			this->label_searchclient_head->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
+			this->label_searchclient_head->Location = System::Drawing::Point(125, 9);
 			this->label_searchclient_head->Name = L"label_searchclient_head";
-			this->label_searchclient_head->Size = System::Drawing::Size(1633, 88);
+			this->label_searchclient_head->Size = System::Drawing::Size(828, 48);
 			this->label_searchclient_head->TabIndex = 9;
 			this->label_searchclient_head->Text = L"Для выбора параметра необходимо поставить галочку в окошко, рядом с  нужным полем"
 				L". \r\nДалее, необходимо выбрать критерии для поиска и нажать кнопку \"Поиск\".\r\n";
@@ -117,10 +117,9 @@ namespace ProjectCourse {
 			this->checkBox_searchclient_name->BackColor = System::Drawing::SystemColors::Info;
 			this->checkBox_searchclient_name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->checkBox_searchclient_name->Location = System::Drawing::Point(48, 150);
-			this->checkBox_searchclient_name->Margin = System::Windows::Forms::Padding(6);
+			this->checkBox_searchclient_name->Location = System::Drawing::Point(31, 71);
 			this->checkBox_searchclient_name->Name = L"checkBox_searchclient_name";
-			this->checkBox_searchclient_name->Size = System::Drawing::Size(329, 55);
+			this->checkBox_searchclient_name->Size = System::Drawing::Size(171, 30);
 			this->checkBox_searchclient_name->TabIndex = 27;
 			this->checkBox_searchclient_name->Text = L"ФИО клиента";
 			this->checkBox_searchclient_name->UseVisualStyleBackColor = false;
@@ -133,10 +132,9 @@ namespace ProjectCourse {
 			this->checkBox_searchclient_phone->BackColor = System::Drawing::SystemColors::Info;
 			this->checkBox_searchclient_phone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->checkBox_searchclient_phone->Location = System::Drawing::Point(48, 447);
-			this->checkBox_searchclient_phone->Margin = System::Windows::Forms::Padding(6);
+			this->checkBox_searchclient_phone->Location = System::Drawing::Point(31, 207);
 			this->checkBox_searchclient_phone->Name = L"checkBox_searchclient_phone";
-			this->checkBox_searchclient_phone->Size = System::Drawing::Size(410, 55);
+			this->checkBox_searchclient_phone->Size = System::Drawing::Size(211, 30);
 			this->checkBox_searchclient_phone->TabIndex = 28;
 			this->checkBox_searchclient_phone->Text = L"Телефон клиента";
 			this->checkBox_searchclient_phone->UseVisualStyleBackColor = false;
@@ -147,10 +145,11 @@ namespace ProjectCourse {
 			this->maskedTextBox_searchclient->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->maskedTextBox_searchclient->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->maskedTextBox_searchclient->Location = System::Drawing::Point(48, 522);
+			this->maskedTextBox_searchclient->Location = System::Drawing::Point(31, 242);
+			this->maskedTextBox_searchclient->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->maskedTextBox_searchclient->Mask = L"(999) 000-0000";
 			this->maskedTextBox_searchclient->Name = L"maskedTextBox_searchclient";
-			this->maskedTextBox_searchclient->Size = System::Drawing::Size(410, 49);
+			this->maskedTextBox_searchclient->Size = System::Drawing::Size(211, 28);
 			this->maskedTextBox_searchclient->TabIndex = 29;
 			this->maskedTextBox_searchclient->Visible = false;
 			// 
@@ -162,10 +161,9 @@ namespace ProjectCourse {
 			this->checkBox_searchclient_address->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->checkBox_searchclient_address->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->checkBox_searchclient_address->Location = System::Drawing::Point(48, 298);
-			this->checkBox_searchclient_address->Margin = System::Windows::Forms::Padding(6);
+			this->checkBox_searchclient_address->Location = System::Drawing::Point(31, 139);
 			this->checkBox_searchclient_address->Name = L"checkBox_searchclient_address";
-			this->checkBox_searchclient_address->Size = System::Drawing::Size(352, 55);
+			this->checkBox_searchclient_address->Size = System::Drawing::Size(182, 30);
 			this->checkBox_searchclient_address->TabIndex = 32;
 			this->checkBox_searchclient_address->Text = L"Адрес клиента";
 			this->checkBox_searchclient_address->UseVisualStyleBackColor = false;
@@ -176,9 +174,10 @@ namespace ProjectCourse {
 			this->textBox_searchclient_address->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->textBox_searchclient_address->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->textBox_searchclient_address->Location = System::Drawing::Point(48, 379);
+			this->textBox_searchclient_address->Location = System::Drawing::Point(31, 174);
+			this->textBox_searchclient_address->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->textBox_searchclient_address->Name = L"textBox_searchclient_address";
-			this->textBox_searchclient_address->Size = System::Drawing::Size(664, 49);
+			this->textBox_searchclient_address->Size = System::Drawing::Size(334, 28);
 			this->textBox_searchclient_address->TabIndex = 33;
 			this->textBox_searchclient_address->Visible = false;
 			// 
@@ -188,9 +187,10 @@ namespace ProjectCourse {
 			this->button_searchclient_remove->BackColor = System::Drawing::Color::SeaShell;
 			this->button_searchclient_remove->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->button_searchclient_remove->Location = System::Drawing::Point(397, 594);
+			this->button_searchclient_remove->Location = System::Drawing::Point(195, 287);
+			this->button_searchclient_remove->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button_searchclient_remove->Name = L"button_searchclient_remove";
-			this->button_searchclient_remove->Size = System::Drawing::Size(340, 140);
+			this->button_searchclient_remove->Size = System::Drawing::Size(170, 73);
 			this->button_searchclient_remove->TabIndex = 8;
 			this->button_searchclient_remove->Text = L"Снять выделение";
 			this->button_searchclient_remove->UseVisualStyleBackColor = false;
@@ -202,9 +202,10 @@ namespace ProjectCourse {
 			this->button_searchclient_enter->BackColor = System::Drawing::Color::SeaShell;
 			this->button_searchclient_enter->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->button_searchclient_enter->Location = System::Drawing::Point(37, 594);
+			this->button_searchclient_enter->Location = System::Drawing::Point(11, 287);
+			this->button_searchclient_enter->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button_searchclient_enter->Name = L"button_searchclient_enter";
-			this->button_searchclient_enter->Size = System::Drawing::Size(340, 140);
+			this->button_searchclient_enter->Size = System::Drawing::Size(170, 73);
 			this->button_searchclient_enter->TabIndex = 35;
 			this->button_searchclient_enter->Text = L"Поиск";
 			this->button_searchclient_enter->UseVisualStyleBackColor = false;
@@ -216,9 +217,10 @@ namespace ProjectCourse {
 			this->button_searchclient_exit->BackColor = System::Drawing::Color::SeaShell;
 			this->button_searchclient_exit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->button_searchclient_exit->Location = System::Drawing::Point(219, 752);
+			this->button_searchclient_exit->Location = System::Drawing::Point(101, 375);
+			this->button_searchclient_exit->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button_searchclient_exit->Name = L"button_searchclient_exit";
-			this->button_searchclient_exit->Size = System::Drawing::Size(340, 140);
+			this->button_searchclient_exit->Size = System::Drawing::Size(170, 73);
 			this->button_searchclient_exit->TabIndex = 36;
 			this->button_searchclient_exit->Text = L"Вернуться назад";
 			this->button_searchclient_exit->UseVisualStyleBackColor = false;
@@ -230,33 +232,34 @@ namespace ProjectCourse {
 			this->dataGridView_searchclient->AllowUserToDeleteRows = false;
 			this->dataGridView_searchclient->AllowUserToOrderColumns = true;
 			this->dataGridView_searchclient->Anchor = System::Windows::Forms::AnchorStyles::None;
-			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView_searchclient->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView_searchclient->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView_searchclient->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView_searchclient->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->client_Column1,
 					this->client_Column2, this->client_Column3, this->client_Column4
 			});
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridView_searchclient->DefaultCellStyle = dataGridViewCellStyle4;
-			this->dataGridView_searchclient->Location = System::Drawing::Point(815, 139);
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView_searchclient->DefaultCellStyle = dataGridViewCellStyle2;
+			this->dataGridView_searchclient->Location = System::Drawing::Point(420, 71);
+			this->dataGridView_searchclient->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dataGridView_searchclient->Name = L"dataGridView_searchclient";
 			this->dataGridView_searchclient->ReadOnly = true;
 			this->dataGridView_searchclient->RowHeadersWidth = 60;
 			this->dataGridView_searchclient->RowTemplate->Height = 33;
-			this->dataGridView_searchclient->Size = System::Drawing::Size(1066, 442);
+			this->dataGridView_searchclient->Size = System::Drawing::Size(554, 289);
 			this->dataGridView_searchclient->TabIndex = 37;
 			// 
 			// client_Column1
@@ -266,7 +269,7 @@ namespace ProjectCourse {
 			this->client_Column1->MinimumWidth = 10;
 			this->client_Column1->Name = L"client_Column1";
 			this->client_Column1->ReadOnly = true;
-			this->client_Column1->Width = 257;
+			this->client_Column1->Width = 138;
 			// 
 			// client_Column2
 			// 
@@ -294,10 +297,10 @@ namespace ProjectCourse {
 			// 
 			// searchclient
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->ClientSize = System::Drawing::Size(1973, 922);
+			this->ClientSize = System::Drawing::Size(985, 509);
 			this->Controls->Add(this->dataGridView_searchclient);
 			this->Controls->Add(this->button_searchclient_exit);
 			this->Controls->Add(this->button_searchclient_enter);
@@ -309,6 +312,7 @@ namespace ProjectCourse {
 			this->Controls->Add(this->label_searchclient_head);
 			this->Controls->Add(this->button_searchclient_remove);
 			this->Controls->Add(this->textBox_searchclient_name);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"searchclient";
 			this->Text = L"Поиск клиентов";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_searchclient))->EndInit();

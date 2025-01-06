@@ -394,6 +394,7 @@ namespace ProjectCourse {
 			// Присваиваем пустой список строк
 			orderadding = String::Empty;
 			combinedString = String::Empty;
+			result_price = 0;
 		}
 	}
 
@@ -488,7 +489,7 @@ namespace ProjectCourse {
 				break;
 			}
 			// Добавляем символ к результату
-			resultString += comboBox_product->Text[i];
+			resultString += comboBox_service->Text[i];
 		}
 		int number = Convert::ToInt32(resultString) - 1;
 
