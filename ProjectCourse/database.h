@@ -166,14 +166,14 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->ToolStripMenuItem_edit_order = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_edit_service = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_info = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			  this->ToolStripMenuItem_exit = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			  this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_delete = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_delete_client = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_delete_supplier = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_delete_product = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_delete_service = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->ToolStripMenuItem_delete_order = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->ToolStripMenuItem_exit = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			  this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			  this->dataGridView_clients = (gcnew System::Windows::Forms::DataGridView());
 			  this->client_Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			  this->client_Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -425,19 +425,6 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->ToolStripMenuItem_info->Text = L"Справка";
 			  this->ToolStripMenuItem_info->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_info_Click);
 			  // 
-			  // ToolStripMenuItem_exit
-			  // 
-			  this->ToolStripMenuItem_exit->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12));
-			  this->ToolStripMenuItem_exit->Name = L"ToolStripMenuItem_exit";
-			  this->ToolStripMenuItem_exit->Size = System::Drawing::Size(111, 25);
-			  this->ToolStripMenuItem_exit->Text = L"Выход из БД";
-			  this->ToolStripMenuItem_exit->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_exit_Click);
-			  // 
-			  // toolStripMenuItem1
-			  // 
-			  this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
-			  this->toolStripMenuItem1->Size = System::Drawing::Size(12, 25);
-			  // 
 			  // ToolStripMenuItem_delete
 			  // 
 			  this->ToolStripMenuItem_delete->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
@@ -467,6 +454,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->ToolStripMenuItem_delete_product->Name = L"ToolStripMenuItem_delete_product";
 			  this->ToolStripMenuItem_delete_product->Size = System::Drawing::Size(273, 26);
 			  this->ToolStripMenuItem_delete_product->Text = L"Удалить базу товаров";
+			  this->ToolStripMenuItem_delete_product->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_delete_product_Click);
 			  // 
 			  // ToolStripMenuItem_delete_service
 			  // 
@@ -479,6 +467,19 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->ToolStripMenuItem_delete_order->Name = L"ToolStripMenuItem_delete_order";
 			  this->ToolStripMenuItem_delete_order->Size = System::Drawing::Size(273, 26);
 			  this->ToolStripMenuItem_delete_order->Text = L"Удалить базу заказов";
+			  // 
+			  // ToolStripMenuItem_exit
+			  // 
+			  this->ToolStripMenuItem_exit->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12));
+			  this->ToolStripMenuItem_exit->Name = L"ToolStripMenuItem_exit";
+			  this->ToolStripMenuItem_exit->Size = System::Drawing::Size(111, 25);
+			  this->ToolStripMenuItem_exit->Text = L"Выход из БД";
+			  this->ToolStripMenuItem_exit->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_exit_Click);
+			  // 
+			  // toolStripMenuItem1
+			  // 
+			  this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
+			  this->toolStripMenuItem1->Size = System::Drawing::Size(12, 25);
 			  // 
 			  // dataGridView_clients
 			  // 
@@ -1704,6 +1705,22 @@ private: System::Void ToolStripMenuItem_delete_supplier_Click(System::Object^ se
 		}
 		/*Удаляем файл*/
 		StreamWriter^ new_file = gcnew StreamWriter("supplier.txt");
+		delete new_file;
+	}
+}
+//Удаление базы товаров
+private: System::Void ToolStripMenuItem_delete_product_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Windows::Forms::DialogResult dialog = MessageBox::Show("Файл с данными клиентов будет удален, восстановить данные будет невозможно.\nВы уверены?", "Предупреждение", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+	if (dialog == System::Windows::Forms::DialogResult::No)
+		return;
+	else {
+		for (int i = 0; i < dataGridView_product->Rows->Count; i++) {
+			/*Удаляем строки*/
+			dataGridView_product->Rows->RemoveAt(i);
+			i--;
+		}
+		/*Удаляем файл*/
+		StreamWriter^ new_file = gcnew StreamWriter("products.txt");
 		delete new_file;
 	}
 }
