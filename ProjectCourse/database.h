@@ -461,6 +461,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->ToolStripMenuItem_delete_service->Name = L"ToolStripMenuItem_delete_service";
 			  this->ToolStripMenuItem_delete_service->Size = System::Drawing::Size(273, 26);
 			  this->ToolStripMenuItem_delete_service->Text = L"Удалить базу услуг";
+			  this->ToolStripMenuItem_delete_service->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_delete_service_Click);
 			  // 
 			  // ToolStripMenuItem_delete_order
 			  // 
@@ -1724,6 +1725,21 @@ private: System::Void ToolStripMenuItem_delete_product_Click(System::Object^ sen
 		delete new_file;
 	}
 }
-
+//Удаление базы услуг
+private: System::Void ToolStripMenuItem_delete_service_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Windows::Forms::DialogResult dialog = MessageBox::Show("Файл с данными клиентов будет удален, восстановить данные будет невозможно.\nВы уверены?", "Предупреждение", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+	if (dialog == System::Windows::Forms::DialogResult::No)
+		return;
+	else {
+		for (int i = 0; i < dataGridView_service->Rows->Count; i++) {
+			/*Удаляем строки*/
+			dataGridView_service->Rows->RemoveAt(i);
+			i--;
+		}
+		/*Удаляем файл*/
+		StreamWriter^ new_file = gcnew StreamWriter("services.txt");
+		delete new_file;
+	}
+}
 };
 }
