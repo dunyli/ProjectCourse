@@ -13,6 +13,7 @@
 #include "searchclient.h"
 #include "searchsupplier.h"
 #include "searchservice.h"
+#include "searchproduct.h"
 
 namespace ProjectCourse {
 
@@ -123,9 +124,6 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column4;
-
-
-
 
 	/*Логическая переменная для проверки изменения данных*/
 	public: bool save = true;
@@ -261,6 +259,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->ToolStripMenuItem_search_product->Name = L"ToolStripMenuItem_search_product";
 			  this->ToolStripMenuItem_search_product->Size = System::Drawing::Size(435, 54);
 			  this->ToolStripMenuItem_search_product->Text = L"Поиск товара";
+			  this->ToolStripMenuItem_search_product->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_search_product_Click);
 			  // 
 			  // ToolStripMenuItem_search_service
 			  // 
@@ -543,7 +542,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 				  this->product_Column1,
 					  this->product_Column2, this->product_Column3, this->product_Column4, this->product_Column5
 			  });
-			  this->dataGridView_product->Location = System::Drawing::Point(157, 250);
+			  this->dataGridView_product->Location = System::Drawing::Point(172, 190);
 			  this->dataGridView_product->Name = L"dataGridView_product";
 			  this->dataGridView_product->ReadOnly = true;
 			  this->dataGridView_product->RowHeadersWidth = 60;
@@ -1570,6 +1569,7 @@ private: System::Void ToolStripMenuItem_search_suppplier_Click(System::Object^ s
 	}
 	else MessageBox::Show("Перед поиском добавьте поставщиков!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 }
+
 //Поиск услуги
 private: System::Void ToolStripMenuItem_search_service_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (dataGridView_service->RowCount > 0) {
@@ -1591,6 +1591,36 @@ private: System::Void ToolStripMenuItem_search_service_Click(System::Object^ sen
 		}
 	}
 	else MessageBox::Show("Перед поиском добавьте услугу!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+}
+
+//Поиск товара
+private: System::Void ToolStripMenuItem_search_product_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (dataGridView_product->RowCount > 0) {
+		if (save == false) {
+			System::Windows::Forms::DialogResult what = MessageBox::Show("Измененные данные не были сохранены. \nНажмите \"да\", если хотите работать с измененными данными.\nНажмите\"нет\, если хотите работать со старыми данными", "Предупреждение", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
+			if (what == System::Windows::Forms::DialogResult::Yes) {
+				ToolStripMenuItem_safe_Click(sender, e);
+			}
+		}
+		searchproduct^ search_product = gcnew searchproduct();
+		List<String^>^ values = gcnew List<String^>();
+		for each (DataGridViewRow^ row in dataGridView_supplier->Rows)
+		{
+			if (row->Cells[0]->Value != nullptr && row->Cells[1]->Value != nullptr)
+			{
+				// Склеиваем значения из первых двух столбцов
+				String^ concatenatedValue = row->Cells[0]->Value->ToString() + ". " + row->Cells[1]->Value->ToString();
+				values->Add(concatenatedValue); // Добавляем склеенные строки в список
+			}
+		}
+		// Проверка на пустоту списка
+		if (values->Count > 0) // Если список не пустой
+		{
+			search_product->SetValues_comboBox_supplier(values);
+			search_product->ShowDialog();
+		}
+	}
+	else MessageBox::Show("Перед поиском добавьте товар!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 }
 };
 }
