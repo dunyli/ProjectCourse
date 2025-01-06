@@ -119,16 +119,16 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column2;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column3;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ supplier_Column4;
 private: System::Windows::Forms::DataGridView^ dataGridView_order;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column4;
-	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete;
-	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_client;
-	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_supplier;
-	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_product;
-	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_service;
-	private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_order;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column3;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ order_Column4;
+public: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete;
+private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_client;
+private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_supplier;
+private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_product;
+private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_service;
+private: System::Windows::Forms::ToolStripMenuItem^ ToolStripMenuItem_delete_order;
 
 	/*Логическая переменная для проверки изменения данных*/
 	public: bool save = true;
@@ -468,6 +468,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView_order;
 			  this->ToolStripMenuItem_delete_order->Name = L"ToolStripMenuItem_delete_order";
 			  this->ToolStripMenuItem_delete_order->Size = System::Drawing::Size(273, 26);
 			  this->ToolStripMenuItem_delete_order->Text = L"Удалить базу заказов";
+			  this->ToolStripMenuItem_delete_order->Click += gcnew System::EventHandler(this, &database::ToolStripMenuItem_delete_order_Click);
 			  // 
 			  // ToolStripMenuItem_exit
 			  // 
@@ -1738,6 +1739,22 @@ private: System::Void ToolStripMenuItem_delete_service_Click(System::Object^ sen
 		}
 		/*Удаляем файл*/
 		StreamWriter^ new_file = gcnew StreamWriter("services.txt");
+		delete new_file;
+	}
+}
+//Удаление базы заказов
+private: System::Void ToolStripMenuItem_delete_order_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Windows::Forms::DialogResult dialog = MessageBox::Show("Файл с данными клиентов будет удален, восстановить данные будет невозможно.\nВы уверены?", "Предупреждение", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+	if (dialog == System::Windows::Forms::DialogResult::No)
+		return;
+	else {
+		for (int i = 0; i < dataGridView_order->Rows->Count; i++) {
+			/*Удаляем строки*/
+			dataGridView_order->Rows->RemoveAt(i);
+			i--;
+		}
+		/*Удаляем файл*/
+		StreamWriter^ new_file = gcnew StreamWriter("orderhistory.txt");
 		delete new_file;
 	}
 }

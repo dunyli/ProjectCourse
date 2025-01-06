@@ -194,10 +194,7 @@ namespace ProjectCourse {
 	private: System::Void button_login_user_Click(System::Object^ sender, System::EventArgs^ e) {
 		database^ user = gcnew database;
 		user->ToolStripMenuItem_edit_data->Visible = false;
-		user->ToolStripMenuItem_delet->Visible = false;
-		user->ToolStripMenuItem_redact->Visible = false;
-		user->ToolStripMenuItem_delet_file->Visible = false;
-		user->ToolStripMenuItem_safe->Visible = false;
+		user->ToolStripMenuItem_delete->Visible = false;
 		user->Show();
 		user->Owner = this;
 		this->Hide();
