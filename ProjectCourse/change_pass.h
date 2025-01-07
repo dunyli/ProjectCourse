@@ -176,7 +176,7 @@ namespace ProjectCourse {
 			this->Controls->Add(this->button_change_pass_enter_old);
 			this->Controls->Add(this->button_change_pass_back);
 			this->Name = L"change_pass";
-			this->Text = L"change_pass";
+			this->Text = L"Смена пароля";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
